@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精算思维 · 第10章：审慎原则与关键风险</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-id="12">
+<button class="navbtn" type="button">☰ 目录</button>
+<aside class="side">
+  <div class="brand"><b>精算思维</b><span>不止于保险——像精算师一样思考，过好这一生</span></div>
+  <nav>
+<a href="index.html">进入知识库 · 全书目录</a>
+<div class="grp">开卷</div>
+<a href="00-序言.html">序言 · 精算思维为什么是必修课</a>
+<div class="grp">第一部分 · 跨期折现力</div>
+<a href="01-折现.html">第1章 · 折现</a>
+<a href="02-净现值与内含价值.html">第2章 · 净现值与内含价值</a>
+<a href="03-内含价值.html">第3章 · 内含价值</a>
+<a href="04-长期总账.html">第4章 · 长期总账</a>
+<a href="05-第一部分总结.html">第一部分总结 · 跨期折现力</a>
+<div class="grp">第二部分 · 动态修正与反馈力</div>
+<a href="06-经验分析.html">第5章 · 经验分析</a>
+<a href="07-滚动预测.html">第6章 · 滚动预测</a>
+<a href="08-随机模拟与反馈闭环.html">第7章 · 随机模拟与反馈闭环</a>
+<a href="09-第二部分总结.html">第二部分总结 · 动态修正与反馈力</a>
+<div class="grp">第三部分 · 安全边际与兜底力</div>
+<a href="10-风险边际.html">第8章 · 风险边际</a>
+<a href="11-偿付能力资本.html">第9章 · 偿付能力资本</a>
+<a href="12-审慎原则与关键风险.html" class="on">第10章 · 审慎原则与关键风险</a>
+<a href="13-黑天鹅准备.html">第11章 · 黑天鹅准备</a>
+<div class="grp">第四部分 · 风险优先级力</div>
+<a href="14-四象限矩阵.html">第12章 · 四象限矩阵</a>
+<a href="15-再保险.html">第13章 · 再保险</a>
+<a href="16-资产负债管理.html">第14章 · 资产负债管理</a>
+<div class="grp">第五部分 · 沟通翻译力</div>
+<a href="17-翻译三栏表.html">第15章 · 翻译三栏表</a>
+<a href="18-受众分层.html">第16章 · 受众分层翻译</a>
+<a href="19-反人性沟通.html">第17章 · 反人性沟通</a>
+<div class="grp">第六部分 · 人生全局平衡力</div>
+<a href="20-人生资产负债表.html">第18章 · 人生资产负债表</a>
+<a href="21-多目标优化.html">第19章 · 多目标优化</a>
+<a href="22-可持续平衡.html">第20章 · 可持续平衡</a>
+<div class="grp">收官</div>
+<a href="23-结语.html">结语 · 30 天打卡表</a>
+<a href="24-全书总结.html">全书总结 · 六大能力与术语速查</a>
+<div class="grp">关于</div>
+<a href="resources.html">延伸资源 · 官方外链与姊妹站</a>
+<a href="xihong.html">关于 · 西红精算</a>
+  </nav>
+  <div class="prog-mini">已读 <b id="kb-mini">0 / 25</b> 页<br>点每页右下角按钮记录进度</div>
+</aside>
+<main class="main">
+<div class="art-host">
+<style>
+
+</style>
+<style>.art-host .container{max-width:800px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:none;padding:30px 26px 40px}.art-host .container h1{font-size:22px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:14px !important;font-family:var(--serif);line-height:1.55 !important;letter-spacing:1px}.art-host .container .subtitle{color:#2f6b5a !important;font-weight:500;font-size:1rem !important;margin:10px 0 20px 0 !important;border-bottom:1px dashed #cfc5ab !important;padding-bottom:12px !important;line-height:1.7 !important}.art-host .container h2{font-size:20px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:12px !important;margin:34px 0 14px !important;line-height:1.55 !important;font-family:var(--serif);letter-spacing:1px}.art-host .container h3{font-size:16.5px !important;color:#2f6b5a !important;margin:24px 0 12px !important;line-height:1.6 !important;font-family:var(--serif)}.art-host .container h4{font-size:15px !important;color:#2b2a26 !important;margin:18px 0 10px !important;line-height:1.6 !important}.art-host .container p{line-height:2.05 !important;margin:0 0 14px !important;font-size:15.5px !important;color:#3a382f !important;font-family:inherit}.art-host .container li{line-height:2 !important;font-size:15px !important;color:#3a382f !important}.art-host .container strong{color:#2b2a26 !important}.art-host .container a{color:#2f6b5a !important}.art-host .container hr{border:none;border-top:1px dashed #cfc5ab;margin:26px 0 !important}.art-host .container table{border-collapse:collapse !important}.art-host .container th{background:#f1ead8 !important;border:1px solid #e0d8c4 !important;color:#2b2a26 !important}.art-host .container td{border:1px solid #e0d8c4 !important;color:#3a382f !important}.art-host .container .fixed-opening{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important;color:#55524a !important}.art-host .container .question-block{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box,.art-host .container .shuorenhua{padding:16px 20px !important}.art-host .container .insight-box p,.art-host .container .shuorenhua p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .insight-box p:last-child,.art-host .container .shuorenhua p:last-child{margin-bottom:0 !important}.art-host .container .insight-box .box-title,.art-host .container .shuorenhua .box-title,.art-host .container .actuary-practice .box-title,.art-host .container .chapter-mini .box-title,.art-host .container .alert-box .box-title,.art-host .container .action-item .box-title,.art-host .container .margin-calc .box-title,.art-host .container .action-tips .box-title{font-weight:700 !important;margin-bottom:6px !important;padding-bottom:6px !important;border-bottom:1px dashed rgba(187,138,31,.45) !important}.art-host .container .actuary-practice p,.art-host .container .chapter-mini p,.art-host .container .alert-box p,.art-host .container .action-item p,.art-host .container .margin-calc p,.art-host .container .action-tips p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .actuary-practice p:last-child,.art-host .container .chapter-mini p:last-child,.art-host .container .alert-box p:last-child,.art-host .container .action-item p:last-child,.art-host .container .margin-calc p:last-child,.art-host .container .action-tips p:last-child{margin-bottom:0 !important}.art-host .container .actuary-practice,.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .action-item,.art-host .container .margin-calc,.art-host .container .action-tips{padding:16px 20px !important}.art-host .container .actuary-practice{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important}.art-host .container .shuorenhua{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important}.art-host .container .core-conclusion{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important;padding:18px 22px !important}.art-host .container .core-conclusion p{margin:10px 0 !important;line-height:1.95 !important}.art-host .container .action-tips{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card h4{color:#b53d2e !important}.art-host .container .tool-badge{background:#2f6b5a !important}.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .italic-quote,.art-host .container .metric-badge,.art-host .container .action-item{line-height:1.95 !important;font-size:14.5px !important;color:#3a382f !important}.chap-banner{margin:0 0 24px;border:1px solid #e0d8c4;border-radius:14px;overflow:hidden}.chap-banner svg{display:block;width:100%;height:auto}</style>
+<div class="container"><figure class="chap-banner"><svg viewBox="0 0 680 190" role="img" aria-label="章节插画：审慎原则"><rect width="680" height="190" fill="#fcf5e6"/><circle cx="598" cy="54" r="44" fill="#e6b45c" opacity="0.10"/><circle cx="598" cy="54" r="28" fill="#e6b45c" opacity="0.16"/><circle cx="598" cy="54" r="14" fill="#e6b45c" opacity="0.85"/><ellipse cx="340" cy="172" rx="305" ry="9" fill="#e3d5b4" opacity="0.5"/><path d="M340 56 v76" stroke="#3a3428" stroke-width="3.5"/><path d="M250 74 h180" stroke="#3a3428" stroke-width="3.5"/><path d="M250 74 l-34 44 h68 z" fill="#c98f2b"/><path d="M430 74 l-34 44 h68 z" fill="#3d7a66"/><circle cx="340" cy="52" r="8" fill="#bf5638"/><text x="216" y="140" font-size="12.5" fill="#c98f2b" text-anchor="middle" font-family="serif">审慎估计 90 分位</text><text x="464" y="140" font-size="12.5" fill="#3d7a66" text-anchor="middle" font-family="serif">最佳估计</text></svg></figure>
+<h1>精算思维 · 第10章：审慎原则与关键风险——乐观赚钱，保守算账</h1>
+<div class="subtitle">像精算师一样思考 · 安全边际与兜底力（续）</div>
+<div class="fixed-opening">⚡ 不推销，只讲逻辑。花10分钟读完，比你自己瞎研究一个月都有用。</div>
+<h2>一、审慎原则：宁可多估损失，不可低估风险</h2>
+    <div class="question-block">
+        <p>❓ 核心追问：</p>
+        <p>“为什么保险公司准备金总是显得‘多算了’？”</p>
+        <p>“监管为什么要强迫公司用保守假设？”</p>
+        <p>“个人做财务规划，该用乐观还是保守的数字？”</p>
+    </div>
+    <h3>一、专业概念：审慎原则 vs 最佳估计</h3>
+    <p>精算评估中有两个概念：<strong>最佳估计</strong>（最可能值）和<strong>审慎估计</strong>（在合理范围内偏保守）。监管要求准备金必须采用审慎原则，因为一旦低估损失，保险公司未来可能赔不出钱，损害投保人利益。</p>
+    <div class="shuorenhua">
+        <strong>💡 说人话：</strong> 最佳估计是“平均情况”，审慎估计是“往坏处多算一点”。不是悲观，而是负责任。
+    </div>
+    <h3>二、精算实践：准备金评估的审慎假设</h3>
+    <div class="actuary-practice">
+        某公司评估车险准备金：最佳估计认为未来赔款为1000万，但考虑到历史数据波动、经济不确定性，精算师选择90%分位数1100万作为准备金。多出来的100万就是审慎边际。这并非浪费，而是确保公司不会因一次小波动就资不抵债。
+    </div>
+    <h3>三、生活应用：个人财务中的审慎原则</h3>
+    <ul>
+        <li><strong>养老金规划</strong>：不要用8%的投资收益率假设，用4%-5%更安全。</li>
+        <li><strong>应急金</strong>：不要只算3个月，根据自己的收入稳定性，考虑6-12个月。</li>
+        <li><strong>购房贷款</strong>：用“未来收入不增长”甚至“降薪20%”的情景测试月供承受力。</li>
+    </ul>
+    <div class="core-conclusion">
+        <strong>🎯 核心心法：</strong> 审慎不是让你放弃机会，而是让你在坏人跑出来时，仍然有路可退。乐观赚钱，保守算账，是精算思维的人生智慧。
+    </div>
+    <div class="action-tips">
+        <strong>✅ 行动建议：</strong> 本周用一个“保守版”假设重算你的养老金或买房计划，看结果是否还能接受。如果不能，说明你需要提高储蓄或降低目标。
+    </div>
+
+    
+    <h2>二、识别关键风险：找到那个“一炸毁所有”的变量</h2>
+    <div class="insight-box">
+        <p class="box-title"><strong>📊 敏感性分析：</strong> 不是所有风险同等重要。有些假设变化10%，结果会变化50%以上——这些就是“关键风险”。保险公司会做敏感性测试：如果投资收益率下降1%，偿付能力下降多少？如果死亡率上升20%，利润下降多少？</p>
+        <p><strong>个人应用：</strong> 列出你财务计划中的几项关键假设（收入增长率、投资收益率、房贷利率、健康状况），问自己：哪个假设变化20%会让你的生活崩溃？那就是你要优先对冲的风险。</p>
+    </div>
+
+    
+    </div>
+</div>
+<div class="pager"><a href="11-偿付能力资本.html"><small>← 上一篇</small>第9章 · 偿付能力资本</a><a class="next" href="13-黑天鹅准备.html"><small>下一篇 →</small>第11章 · 黑天鹅准备</a></div>
+<footer class="colophon">精算思维 · 西红精算 · 不推销，只讲逻辑<br>本文只讲思维与方法，不构成任何投资或投保建议。</footer>
+</main>
+<script src="js/kb.js"></script>
+</body>
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精算思维 · 第1章：折现</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-id="01">
+<button class="navbtn" type="button">☰ 目录</button>
+<aside class="side">
+  <div class="brand"><b>精算思维</b><span>不止于保险——像精算师一样思考，过好这一生</span></div>
+  <nav>
+<a href="index.html">进入知识库 · 全书目录</a>
+<div class="grp">开卷</div>
+<a href="00-序言.html">序言 · 精算思维为什么是必修课</a>
+<div class="grp">第一部分 · 跨期折现力</div>
+<a href="01-折现.html" class="on">第1章 · 折现</a>
+<a href="02-净现值与内含价值.html">第2章 · 净现值与内含价值</a>
+<a href="03-内含价值.html">第3章 · 内含价值</a>
+<a href="04-长期总账.html">第4章 · 长期总账</a>
+<a href="05-第一部分总结.html">第一部分总结 · 跨期折现力</a>
+<div class="grp">第二部分 · 动态修正与反馈力</div>
+<a href="06-经验分析.html">第5章 · 经验分析</a>
+<a href="07-滚动预测.html">第6章 · 滚动预测</a>
+<a href="08-随机模拟与反馈闭环.html">第7章 · 随机模拟与反馈闭环</a>
+<a href="09-第二部分总结.html">第二部分总结 · 动态修正与反馈力</a>
+<div class="grp">第三部分 · 安全边际与兜底力</div>
+<a href="10-风险边际.html">第8章 · 风险边际</a>
+<a href="11-偿付能力资本.html">第9章 · 偿付能力资本</a>
+<a href="12-审慎原则与关键风险.html">第10章 · 审慎原则与关键风险</a>
+<a href="13-黑天鹅准备.html">第11章 · 黑天鹅准备</a>
+<div class="grp">第四部分 · 风险优先级力</div>
+<a href="14-四象限矩阵.html">第12章 · 四象限矩阵</a>
+<a href="15-再保险.html">第13章 · 再保险</a>
+<a href="16-资产负债管理.html">第14章 · 资产负债管理</a>
+<div class="grp">第五部分 · 沟通翻译力</div>
+<a href="17-翻译三栏表.html">第15章 · 翻译三栏表</a>
+<a href="18-受众分层.html">第16章 · 受众分层翻译</a>
+<a href="19-反人性沟通.html">第17章 · 反人性沟通</a>
+<div class="grp">第六部分 · 人生全局平衡力</div>
+<a href="20-人生资产负债表.html">第18章 · 人生资产负债表</a>
+<a href="21-多目标优化.html">第19章 · 多目标优化</a>
+<a href="22-可持续平衡.html">第20章 · 可持续平衡</a>
+<div class="grp">收官</div>
+<a href="23-结语.html">结语 · 30 天打卡表</a>
+<a href="24-全书总结.html">全书总结 · 六大能力与术语速查</a>
+<div class="grp">关于</div>
+<a href="resources.html">延伸资源 · 官方外链与姊妹站</a>
+<a href="xihong.html">关于 · 西红精算</a>
+  </nav>
+  <div class="prog-mini">已读 <b id="kb-mini">0 / 25</b> 页<br>点每页右下角按钮记录进度</div>
+</aside>
+<main class="main">
+<div class="art-host">
+<style>
+.art-host *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+.art-host body{
+            background-color: #f7f9fc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.68;
+            color: #1f2d3d;
+            padding: 20px 0 50px;
+        }
+.art-host .container{
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 28px 22px 48px;
+        }
+@media (max-width: 560px){.art-host .container{
+                padding: 22px 18px 40px;
+                margin: 0 12px;
+            }}
+.art-host h1{
+            font-size: 1.9rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0.2rem 0 0.5rem 0;
+            color: #0b2b3b;
+            letter-spacing: -0.3px;
+            border-left: 5px solid #2c7da0;
+            padding-left: 18px;
+        }
+.art-host .subtitle{
+            font-size: 1rem;
+            color: #2c7da0;
+            font-weight: 500;
+            margin: 10px 0 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+.art-host .fixed-opening{
+            background-color: #f0f4fa;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 24px 0 20px;
+            border: 1px solid #dce5ef;
+            font-style: normal;
+            color: #1e4660;
+            font-weight: 500;
+        }
+.art-host .question-block{
+            background: #fef9e8;
+            border-left: 4px solid #f5a623;
+            padding: 14px 18px;
+            margin: 24px 0;
+            border-radius: 16px;
+        }
+.art-host .question-block p{
+            margin: 6px 0;
+            font-weight: 500;
+        }
+.art-host h2{
+            font-size: 1.65rem;
+            font-weight: 650;
+            margin: 1.6em 0 0.6em;
+            color: #1f4e6e;
+            border-left: 4px solid #2c7da0;
+            padding-left: 14px;
+        }
+.art-host h3{
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.4em 0 0.4em;
+            color: #285e7a;
+        }
+.art-host .insight-box{
+            background-color: #fef5e8;
+            border-left: 4px solid #f39c12;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+.art-host .actuary-practice{
+            background-color: #eef4fc;
+            border-left: 4px solid #2c7da0;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+        }
+.art-host .shuorenhua{
+            background-color: #f0f4fa;
+            padding: 14px 20px;
+            border-radius: 20px;
+            margin: 1.2em 0;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+        }
+.art-host .action-tips{
+            background-color: #eef2f7;
+            border-radius: 22px;
+            padding: 20px 24px;
+            margin: 1.8em 0;
+            border: 1px solid #dce5ec;
+        }
+.art-host .alert-box{
+            background-color: #fee9e6;
+            border-left: 4px solid #dc2626;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host .core-conclusion{
+            background: #e6f7ec;
+            border-left: 4px solid #2e7d32;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.9rem;
+        }
+.art-host th,.art-host td{
+            border: 1px solid #d4dce6;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+.art-host th{
+            background-color: #eef2f8;
+            font-weight: 600;
+        }
+.art-host .speed-card{
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 10px 18px 18px;
+            margin: 28px 0 20px;
+            border: 1px solid #e2edf2;
+        }
+.art-host .speed-card h4{
+            font-size: 1.3rem;
+            margin: 0.6rem 0 1rem;
+            color: #0e4b6e;
+        }
+.art-host footer{
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid #e2edf0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4f6f8f;
+        }
+.art-host .next-chapter{
+            background: #e1edf5;
+            padding: 16px 22px;
+            border-radius: 28px;
+            margin: 32px 0 16px;
+            font-weight: 500;
+        }
+.art-host hr{
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+.art-host .strong-lead{
+            font-weight: 700;
+            color: #1e4660;
+        }
+.art-host .italic-quote{
+            font-style: italic;
+            color: #4a627a;
+        }
+.art-host .action-item{
+            margin: 12px 0;
+        }
+@media (max-width: 480px){.art-host h1{ font-size: 1.7rem; }
+.art-host h2{ font-size: 1.45rem; }
+.art-host .container{ padding: 20px 16px 40px; }}
+</style>
+<style>.art-host .container{max-width:800px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:none;padding:30px 26px 40px}.art-host .container h1{font-size:22px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:14px !important;font-family:var(--serif);line-height:1.55 !important;letter-spacing:1px}.art-host .container .subtitle{color:#2f6b5a !important;font-weight:500;font-size:1rem !important;margin:10px 0 20px 0 !important;border-bottom:1px dashed #cfc5ab !important;padding-bottom:12px !important;line-height:1.7 !important}.art-host .container h2{font-size:20px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:12px !important;margin:34px 0 14px !important;line-height:1.55 !important;font-family:var(--serif);letter-spacing:1px}.art-host .container h3{font-size:16.5px !important;color:#2f6b5a !important;margin:24px 0 12px !important;line-height:1.6 !important;font-family:var(--serif)}.art-host .container h4{font-size:15px !important;color:#2b2a26 !important;margin:18px 0 10px !important;line-height:1.6 !important}.art-host .container p{line-height:2.05 !important;margin:0 0 14px !important;font-size:15.5px !important;color:#3a382f !important;font-family:inherit}.art-host .container li{line-height:2 !important;font-size:15px !important;color:#3a382f !important}.art-host .container strong{color:#2b2a26 !important}.art-host .container a{color:#2f6b5a !important}.art-host .container hr{border:none;border-top:1px dashed #cfc5ab;margin:26px 0 !important}.art-host .container table{border-collapse:collapse !important}.art-host .container th{background:#f1ead8 !important;border:1px solid #e0d8c4 !important;color:#2b2a26 !important}.art-host .container td{border:1px solid #e0d8c4 !important;color:#3a382f !important}.art-host .container .fixed-opening{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important;color:#55524a !important}.art-host .container .question-block{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box,.art-host .container .shuorenhua{padding:16px 20px !important}.art-host .container .insight-box p,.art-host .container .shuorenhua p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .insight-box p:last-child,.art-host .container .shuorenhua p:last-child{margin-bottom:0 !important}.art-host .container .insight-box .box-title,.art-host .container .shuorenhua .box-title,.art-host .container .actuary-practice .box-title,.art-host .container .chapter-mini .box-title,.art-host .container .alert-box .box-title,.art-host .container .action-item .box-title,.art-host .container .margin-calc .box-title,.art-host .container .action-tips .box-title{font-weight:700 !important;margin-bottom:6px !important;padding-bottom:6px !important;border-bottom:1px dashed rgba(187,138,31,.45) !important}.art-host .container .actuary-practice p,.art-host .container .chapter-mini p,.art-host .container .alert-box p,.art-host .container .action-item p,.art-host .container .margin-calc p,.art-host .container .action-tips p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .actuary-practice p:last-child,.art-host .container .chapter-mini p:last-child,.art-host .container .alert-box p:last-child,.art-host .container .action-item p:last-child,.art-host .container .margin-calc p:last-child,.art-host .container .action-tips p:last-child{margin-bottom:0 !important}.art-host .container .actuary-practice,.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .action-item,.art-host .container .margin-calc,.art-host .container .action-tips{padding:16px 20px !important}.art-host .container .actuary-practice{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important}.art-host .container .shuorenhua{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important}.art-host .container .core-conclusion{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important;padding:18px 22px !important}.art-host .container .core-conclusion p{margin:10px 0 !important;line-height:1.95 !important}.art-host .container .action-tips{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card h4{color:#b53d2e !important}.art-host .container .tool-badge{background:#2f6b5a !important}.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .italic-quote,.art-host .container .metric-badge,.art-host .container .action-item{line-height:1.95 !important;font-size:14.5px !important;color:#3a382f !important}.chap-banner{margin:0 0 24px;border:1px solid #e0d8c4;border-radius:14px;overflow:hidden}.chap-banner svg{display:block;width:100%;height:auto}</style>
+<div class="container"><figure class="chap-banner"><svg viewBox="0 0 680 190" role="img" aria-label="章节插画：折现"><rect width="680" height="190" fill="#fcf5e6"/><circle cx="598" cy="54" r="44" fill="#e6b45c" opacity="0.10"/><circle cx="598" cy="54" r="28" fill="#e6b45c" opacity="0.16"/><circle cx="598" cy="54" r="14" fill="#e6b45c" opacity="0.85"/><ellipse cx="340" cy="172" rx="305" ry="9" fill="#e3d5b4" opacity="0.5"/><line x1="80" y1="140" x2="600" y2="140" stroke="#3d7a66" stroke-width="2"/><circle cx="120" cy="120" r="16" fill="#bf5638"/><circle cx="240" cy="123" r="13" fill="#bf5638"/><circle cx="360" cy="126" r="10" fill="#c98f2b"/><circle cx="480" cy="129" r="7" fill="#c98f2b"/><circle cx="590" cy="131" r="5" fill="#e3d5b4"/><text x="120" y="166" font-size="13" fill="#3a3428" text-anchor="middle" font-family="serif">今天</text><text x="590" y="166" font-size="13" fill="#3a3428" text-anchor="middle" font-family="serif">十年后</text><text x="360" y="56" font-size="14" fill="#3d7a66" text-anchor="middle" font-family="serif">越远越打折：先折现，再比较</text></svg></figure>
+    <h1>精算思维 · 第1章：折现——让不同时间的钱公平比较</h1>
+    <div class="subtitle">像精算师一样思考 · 跨期折现力</div>
+
+    
+    <div class="fixed-opening">
+        ⚡ 不推销，只讲逻辑。花10分钟读完，比你自己瞎研究一个月都有用。
+    </div>
+
+    
+    <div class="question-block">
+        <p>❓ 很多朋友问我：</p>
+        <p>“为什么说今天的一块钱不等于明年的一块钱？”</p>
+        <p>“保险公司赔我30年后的100万，和现在赔我100万，能一样吗？”</p>
+        <p>“精算师总在算‘现值’，那到底是什么？对普通人有什么用？”</p>
+        <p style="margin-top: 12px;">📌 这些问题，都指向精算思维的第一项核心能力——<strong>跨期折现力</strong>。说得更直白些：让不同时间点的钱能够公平比较。</p>
+    </div>
+
+    
+    <h2>一、专业概念：货币时间价值与折现率</h2>
+    <h3>1. 为什么今天的一块钱不等于明年的一块钱？</h3>
+    <p>如果你今天有100元，可以存入银行，假设年利率3%，一年后变成103元。反过来看，一年后的103元，放到今天只值100元——因为你可以通过投资让今天的钱增值。</p>
+    <p><strong>这就是货币的时间价值</strong>：钱在不同的时点，购买力和机会成本不同。<br>
+    <strong>折现</strong>，就是把未来的钱换算成今天的价值。换算所用的“折扣率”，叫<strong>折现率</strong>。</p>
+    <p>折现率本质上回答三个问题：</p>
+    <ul style="margin-left: 24px; margin-bottom: 1rem;">
+        <li><strong>耐心</strong>：你愿意等多久？</li>
+        <li><strong>机会成本</strong>：这笔钱如果不花，能赚多少？</li>
+        <li><strong>风险</strong>：未来的钱一定能拿到吗？</li>
+    </ul>
+
+    <h3>2. 折现率怎么选？</h3>
+    <p>精算师在选择折现率时，会综合考虑：</p>
+    <table>
+        <thead>
+            <tr><th>折现率类型</th><th>参考值</th><th>适用场景</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>无风险利率</td><td>2%-3%</td><td>国债利率，几乎确定能拿到</td></tr>
+            <tr><td>公司债收益率</td><td>4%-6%</td><td>有一定信用风险</td></tr>
+            <tr><td>股权投资期望回报</td><td>8%-12%</td><td>高风险高收益</td></tr>
+            <tr><td>个人内心折现率</td><td>因人而异</td><td>你对“现在”的偏好程度</td></tr>
+        </tbody>
+    </table>
+
+    
+    <div class="insight-box">
+        <strong>🔑 关键洞察：</strong> 你内心的折现率越高，说明你越“不耐烦”，越偏好即时满足。研究发现，高折现率的人往往储蓄更少、锻炼更少、保险买得更晚。
+    </div>
+
+    
+    <h2>二、精算实践：保险公司如何用折现评估负债</h2>
+    <div class="actuary-practice">
+        <p class="box-title"><strong>📋 一个精算师的真实工作场景</strong></p>
+        <p>我在保险公司做准备金评估时，每天都要回答一个问题：<strong>“未来要赔的钱，今天该预留多少？”</strong></p>
+        <p>比如，公司卖了一份20年期的定期寿险。保额100万。现在20岁的年轻男性买了这份保单，精算师需要预测：未来20年内，这个客户死亡的概率是多少？然后把他可能赔出去的100万，按照一个合理的折现率，折算到今天。</p>
+        <p>假设：</p>
+        <p>- 20年内死亡概率 = 0.5%</p>
+        <p>- 预期赔付 = 100万 × 0.5% = 5000元（期望值）</p>
+        <p>- 但赔款可能发生在第5年，也可能在第18年，时间不同</p>
+        <p>- 精算师会取一个中间点，比如第10年，然后用折现率（假设3%）把5000元折现到今天</p>
+        <p><strong>计算公式：</strong> 准备金 ≈ 5000 ÷ (1+3%)^10 ≈ 3720元</p>
+        <p><strong>这意味着：</strong> 今天只需要预留3720元，假设每年3%的投资收益，10年后就能滚到5000元，刚好覆盖期望赔付。</p>
+        <p>但如果精算师选错了折现率——比如用5%而不是3%，那么今天只需要预留 5000 ÷ 1.05^10 ≈ 3069元，少了650元。看似“省钱”，实则危险：如果实际收益率达不到5%，未来就赔不出钱，公司就会破产。</p>
+        <p><span style="background-color:#fff2cf; padding:2px 6px; border-radius:12px;">📌 精算师的审慎原则：折现率不能太乐观。</span> 监管通常会规定一个偏保守的上限（比如不能高于公司投资收益率假设）。</p>
+    </div>
+
+    
+    <div class="insight-box">
+        <p class="box-title"><strong>📈 延伸精算概念：准备金折现</strong></p>
+        <p>准备金，是保险公司负债中最大的一项。把未来的赔款折现到今天，就是为了保证“钱够用”。<strong>这不是会计上的数字游戏，而是确保公司百年不倒的底线。</strong></p>
+    </div>
+
+    
+    <h2>三、生活应用：你的折现率是多少？</h2>
+    <h3>小测试：测测你的内心折现率</h3>
+    <p><strong>问题</strong>：你愿意今天拿100元，还是1年后拿110元？</p>
+    <ul>
+        <li>选“今天100元” → 你的折现率 &gt; 10%</li>
+        <li>选“1年后110元” → 你的折现率 &lt; 10%</li>
+        <li>犹豫 → 大约10%</li>
+    </ul>
+    <p>如果换成：今天拿100元 vs 1年后拿120元呢？选今天，说明折现率 &gt;20%。</p>
+    <p><strong>更高阶测试</strong>：让你存养老金，每月强制存1000元，65岁后每月领3000元，你愿意吗？很多年轻人不愿意，因为内心的折现率太高——未来的3000元，折算到今天“看起来”很少。</p>
+
+    <div class="core-conclusion">
+        <p><strong>🧠 为什么你的折现率很重要？</strong></p>
+        <p>高折现率的人，容易做出“短期爽、长期亏”的决定：不存钱、不投资、不买保险；透支身体换取当下快感；拖延重要但不紧急的事（体检、学习、陪伴家人）。</p>
+        <p>低折现率的人，则有更强的长期规划能力，愿意为未来牺牲当下，但可能走向另一个极端：过度节俭，牺牲了当下的生活品质。</p>
+        <p><strong>精算思维不追求极低折现率，而是让你意识到自己的折现率，并根据情境调整。</strong></p>
+    </div>
+
+    
+    <h3>行动工具：折现率自测卡</h3>
+    <table>
+        <thead><tr><th>情景</th><th>你的选择</th><th>隐含折现率</th></tr></thead>
+        <tbody>
+            <tr><td>今天100 vs 1年后110</td><td>今天 / 1年后</td><td>&gt;10% / &lt;10%</td></tr>
+            <tr><td>今天100 vs 1年后120</td><td>今天 / 1年后</td><td>&gt;20% / &lt;20%</td></tr>
+            <tr><td>今天100 vs 3年后150</td><td>今天 / 3年后</td><td>&gt;14% / &lt;14%</td></tr>
+            <tr><td>每月存500 vs 5年后一次拿3.5万</td><td>存 / 不存</td><td>&gt;8% / &lt;8%</td></tr>
+        </tbody>
+    </table>
+    <p class="italic-quote">建议：用真实决策记录一周，看看你的折现率在不同场景下是否一致。如果不一致，说明你的决策存在情绪偏误。</p>
+
+    
+    <h2>四、生活类比：两个农夫的折现率</h2>
+    <p>一位经济学家到农村考察，看到两个农民。</p>
+    <p><strong>农民A</strong>：把收获的粮食全部吃光，一点儿不剩。<br>
+    <strong>农民B</strong>：留下一部分做种子，种到田里，明年收获更多。</p>
+    <p>经济学家问A：“你不怕明年没饭吃吗？”<br>
+    A说：“明年的事明年再说，现在吃饱最重要。<strong>我折现率高。</strong>”</p>
+    <p>问B：“你为什么不都吃掉？”<br>
+    B说：“我少吃一点，换来明年多十倍的粮食。晚点享受，但享受更大。<strong>我折现率低。</strong>”</p>
+    <p>经济学家又问：“如果你们两人交换土地和工具，谁会过得更好？”<br>
+    答案：B会接管A的土地，而A很快会破产。</p>
+    <div class="shuorenhua">
+        <strong>💡 说人话：</strong> 折现率决定了你是“种田的人”还是“吃光的人”。
+    </div>
+
+    
+    <h2>五、精算师视角：为什么个人比企业更需要理解折现？</h2>
+    <p>企业有专业的财务部门，使用净现值法评估项目。但绝大多数个人在做人生重大决策时，完全凭感觉：</p>
+    <ul>
+        <li>要不要花两年时间读一个研究生？</li>
+        <li>要不要每月多存2000元用于养老？</li>
+        <li>要不要现在就拔智齿（省下未来的牙痛和高额治疗费）？</li>
+    </ul>
+    <p><strong>折现，就是帮你把这些“凭感觉”的事，变成“凭计算”的事。</strong></p>
+    <p>而且，你不需要复杂的Excel。只需要在纸上画一个简表：</p>
+    <table>
+        <thead><tr><th>项目</th><th>成本（今天）</th><th>未来收益（年数）</th><th>未来收益折现后价值</th><th>净现值</th></tr></thead>
+        <tbody>
+            <tr><td>读MBA</td><td>-30万</td><td>年增收15万 × 10年</td><td>约110万（折现6%）</td><td>+80万</td></tr>
+            <tr><td>买好车</td><td>-40万</td><td>无（或负的养车成本）</td><td>-40万</td><td>-40万</td></tr>
+            <tr><td>健身</td><td>-1万/年</td><td>未来医疗费省20万 + 精力提升</td><td>大约+25万</td><td>+24万</td></tr>
+        </tbody>
+    </table>
+    <div class="alert-box">
+        <p class="box-title"><strong>🎯 精算师给你的建议：</strong></p>
+        <p>1️⃣ 算一算你的人力资本现值：你未来30年的收入折现到今天，大概是多少？对多数白领，这个数字在300万-1000万之间。这就是你最大的资产。</p>
+        <p>2️⃣ 在做消费决策前，问自己：这笔钱如果不花，投在自己身上（学习、健康、保险），未来的折现价值是多少？</p>
+        <p>3️⃣ 不要被“折扣”迷惑：今天打5折买一个不需要的东西，实际是100%亏损。因为这笔钱失去了未来增值的可能。</p>
+    </div>
+
+    
+    <h2>六、给你的行动建议</h2>
+    <div class="action-tips">
+        
+        <p><strong>✅ 行动清单：</strong></p>
+        <p>1️⃣ <strong>本周做一个折现率小实验</strong></p>
+        <p>选一笔非必要消费，比如300元的周末聚餐。问自己：如果这300元定投指数基金，按8%年化收益，10年后值多少钱？</p>
+        <p>计算：300 × (1.08)^10 ≈ 647元。</p>
+        <p>再问：10年后的647元，折现到今天（用8%折现率），正好是300元。如果你觉得未来的647元不值今天的300元，说明你的内心折现率高于8%，那就花掉；否则就存下来。<strong>这个小实验会重塑你的消费观。</strong></p>
+        <p>2️⃣ <strong>画一张你的“人生现值表”</strong></p>
+        <p>在纸上列出未来10年可能的大额支出和收入，选一个折现率（建议保守，用4%），把未来的每笔钱折算到今天。你会发现：有些今天舍不得花的钱（如体检、保险、课程），其实现值是“赚”的。</p>
+        <p>3️⃣ <strong>每年生日做一次“折现率校准”</strong></p>
+        <p>年龄越大，未来的时间越短，你的折现率应该逐渐提高。30岁时可能用5%，50岁时用8%更合理。因为留给你的增值时间变短了，当下的价值相对更高。这并非矛盾，而是动态调整。</p>
+    
+    </div>
+
+    
+    
+
+    
+    
+
+    
+    <div class="speed-card">
+        <h4>📌 本章核心概念速记卡</h4>
+        <table style="margin:0; background: white;">
+            <thead><tr><th>中文</th><th>英文</th><th>一句话大白话</th></tr></thead>
+            <tbody>
+                <tr><td>货币时间价值</td><td>Time Value of Money</td><td>今天的一块钱比明天的一块钱更值钱</td></tr>
+                <tr><td>折现</td><td>Discounting</td><td>把未来的钱“打折”算成今天的价值</td></tr>
+                <tr><td>折现率</td><td>Discount Rate</td><td>你给未来收益打的折扣力度</td></tr>
+                <tr><td>准备金</td><td>Reserve</td><td>保险公司为未来赔款提前留的钱</td></tr>
+                <tr><td>净现值</td><td>Net Present Value</td><td>收益折现 − 成本，正数就值得做</td></tr>
+                <tr><td>人力资本现值</td><td>Human Capital PV</td><td>你未来一辈子能赚的钱，折到今天</td></tr>
+            </tbody>
+        </table>
+        <div class="shuorenhua" style="margin-top: 16px;">
+            💡 <strong>延伸思考：</strong> 你的折现率可能是变化的。对健康投资，不妨用低折现率（因为健康复利持续一生）；对纯消费，用高折现率（因为享受完就没了）。学会在不同场景切换折现率，才是真正的精算思维。
+        </div>
+    </div>
+    </div>
+</div>
+<div class="pager"><a href="00-序言.html"><small>← 上一篇</small>序言 · 精算思维为什么是必修课</a><a class="next" href="02-净现值与内含价值.html"><small>下一篇 →</small>第2章 · 净现值与内含价值</a></div>
+<footer class="colophon">精算思维 · 西红精算 · 不推销，只讲逻辑<br>本文只讲思维与方法，不构成任何投资或投保建议。</footer>
+</main>
+<script src="js/kb.js"></script>
+</body>
+</html>

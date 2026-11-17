@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精算思维 · 第14章：资产负债管理</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-id="16">
+<button class="navbtn" type="button">☰ 目录</button>
+<aside class="side">
+  <div class="brand"><b>精算思维</b><span>不止于保险——像精算师一样思考，过好这一生</span></div>
+  <nav>
+<a href="index.html">进入知识库 · 全书目录</a>
+<div class="grp">开卷</div>
+<a href="00-序言.html">序言 · 精算思维为什么是必修课</a>
+<div class="grp">第一部分 · 跨期折现力</div>
+<a href="01-折现.html">第1章 · 折现</a>
+<a href="02-净现值与内含价值.html">第2章 · 净现值与内含价值</a>
+<a href="03-内含价值.html">第3章 · 内含价值</a>
+<a href="04-长期总账.html">第4章 · 长期总账</a>
+<a href="05-第一部分总结.html">第一部分总结 · 跨期折现力</a>
+<div class="grp">第二部分 · 动态修正与反馈力</div>
+<a href="06-经验分析.html">第5章 · 经验分析</a>
+<a href="07-滚动预测.html">第6章 · 滚动预测</a>
+<a href="08-随机模拟与反馈闭环.html">第7章 · 随机模拟与反馈闭环</a>
+<a href="09-第二部分总结.html">第二部分总结 · 动态修正与反馈力</a>
+<div class="grp">第三部分 · 安全边际与兜底力</div>
+<a href="10-风险边际.html">第8章 · 风险边际</a>
+<a href="11-偿付能力资本.html">第9章 · 偿付能力资本</a>
+<a href="12-审慎原则与关键风险.html">第10章 · 审慎原则与关键风险</a>
+<a href="13-黑天鹅准备.html">第11章 · 黑天鹅准备</a>
+<div class="grp">第四部分 · 风险优先级力</div>
+<a href="14-四象限矩阵.html">第12章 · 四象限矩阵</a>
+<a href="15-再保险.html">第13章 · 再保险</a>
+<a href="16-资产负债管理.html" class="on">第14章 · 资产负债管理</a>
+<div class="grp">第五部分 · 沟通翻译力</div>
+<a href="17-翻译三栏表.html">第15章 · 翻译三栏表</a>
+<a href="18-受众分层.html">第16章 · 受众分层翻译</a>
+<a href="19-反人性沟通.html">第17章 · 反人性沟通</a>
+<div class="grp">第六部分 · 人生全局平衡力</div>
+<a href="20-人生资产负债表.html">第18章 · 人生资产负债表</a>
+<a href="21-多目标优化.html">第19章 · 多目标优化</a>
+<a href="22-可持续平衡.html">第20章 · 可持续平衡</a>
+<div class="grp">收官</div>
+<a href="23-结语.html">结语 · 30 天打卡表</a>
+<a href="24-全书总结.html">全书总结 · 六大能力与术语速查</a>
+<div class="grp">关于</div>
+<a href="resources.html">延伸资源 · 官方外链与姊妹站</a>
+<a href="xihong.html">关于 · 西红精算</a>
+  </nav>
+  <div class="prog-mini">已读 <b id="kb-mini">0 / 25</b> 页<br>点每页右下角按钮记录进度</div>
+</aside>
+<main class="main">
+<div class="art-host">
+<style>
+.art-host *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+.art-host body{
+            background-color: #f7f9fc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.68;
+            color: #1f2d3d;
+            padding: 20px 0 50px;
+        }
+.art-host .container{
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 28px 22px 48px;
+        }
+@media (max-width: 560px){.art-host .container{
+                padding: 22px 18px 40px;
+                margin: 0 12px;
+            }}
+.art-host h1{
+            font-size: 1.9rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0.2rem 0 0.5rem 0;
+            color: #0b2b3b;
+            letter-spacing: -0.3px;
+            border-left: 5px solid #2c7da0;
+            padding-left: 18px;
+        }
+.art-host .subtitle{
+            font-size: 1rem;
+            color: #2c7da0;
+            font-weight: 500;
+            margin: 10px 0 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+.art-host .fixed-opening{
+            background-color: #f0f4fa;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 24px 0 20px;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+            color: #1e4660;
+        }
+.art-host .question-block{
+            background: #fef9e8;
+            border-left: 4px solid #f5a623;
+            padding: 14px 18px;
+            margin: 24px 0;
+            border-radius: 16px;
+        }
+.art-host .question-block p{
+            margin: 6px 0;
+            font-weight: 500;
+        }
+.art-host h2{
+            font-size: 1.65rem;
+            font-weight: 650;
+            margin: 1.6em 0 0.6em;
+            color: #1f4e6e;
+            border-left: 4px solid #2c7da0;
+            padding-left: 14px;
+        }
+.art-host h3{
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.4em 0 0.4em;
+            color: #285e7a;
+        }
+.art-host .insight-box{
+            background-color: #fef5e8;
+            border-left: 4px solid #f39c12;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+.art-host .actuary-practice{
+            background-color: #eef4fc;
+            border-left: 4px solid #2c7da0;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+        }
+.art-host .shuorenhua{
+            background-color: #f0f4fa;
+            padding: 14px 20px;
+            border-radius: 20px;
+            margin: 1.2em 0;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+        }
+.art-host .action-tips{
+            background-color: #eef2f7;
+            border-radius: 22px;
+            padding: 20px 24px;
+            margin: 1.8em 0;
+            border: 1px solid #dce5ec;
+        }
+.art-host .alert-box{
+            background-color: #fee9e6;
+            border-left: 4px solid #dc2626;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host .core-conclusion{
+            background: #e6f7ec;
+            border-left: 4px solid #2e7d32;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.9rem;
+        }
+.art-host th,.art-host td{
+            border: 1px solid #d4dce6;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+.art-host th{
+            background-color: #eef2f8;
+            font-weight: 600;
+        }
+.art-host .speed-card{
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 10px 18px 18px;
+            margin: 28px 0 20px;
+            border: 1px solid #e2edf2;
+        }
+.art-host .speed-card h4{
+            font-size: 1.3rem;
+            margin: 0.6rem 0 1rem;
+            color: #0e4b6e;
+        }
+.art-host footer{
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid #e2edf0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4f6f8f;
+        }
+.art-host .next-chapter{
+            background: #e1edf5;
+            padding: 16px 22px;
+            border-radius: 28px;
+            margin: 32px 0 16px;
+            font-weight: 500;
+        }
+.art-host hr{
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+.art-host .action-item{
+            margin: 12px 0;
+        }
+.art-host .alm-table{
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #dce5ec;
+            padding: 14px;
+            margin: 16px 0;
+        }
+</style>
+<style>.art-host .container{max-width:800px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:none;padding:30px 26px 40px}.art-host .container h1{font-size:22px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:14px !important;font-family:var(--serif);line-height:1.55 !important;letter-spacing:1px}.art-host .container .subtitle{color:#2f6b5a !important;font-weight:500;font-size:1rem !important;margin:10px 0 20px 0 !important;border-bottom:1px dashed #cfc5ab !important;padding-bottom:12px !important;line-height:1.7 !important}.art-host .container h2{font-size:20px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:12px !important;margin:34px 0 14px !important;line-height:1.55 !important;font-family:var(--serif);letter-spacing:1px}.art-host .container h3{font-size:16.5px !important;color:#2f6b5a !important;margin:24px 0 12px !important;line-height:1.6 !important;font-family:var(--serif)}.art-host .container h4{font-size:15px !important;color:#2b2a26 !important;margin:18px 0 10px !important;line-height:1.6 !important}.art-host .container p{line-height:2.05 !important;margin:0 0 14px !important;font-size:15.5px !important;color:#3a382f !important;font-family:inherit}.art-host .container li{line-height:2 !important;font-size:15px !important;color:#3a382f !important}.art-host .container strong{color:#2b2a26 !important}.art-host .container a{color:#2f6b5a !important}.art-host .container hr{border:none;border-top:1px dashed #cfc5ab;margin:26px 0 !important}.art-host .container table{border-collapse:collapse !important}.art-host .container th{background:#f1ead8 !important;border:1px solid #e0d8c4 !important;color:#2b2a26 !important}.art-host .container td{border:1px solid #e0d8c4 !important;color:#3a382f !important}.art-host .container .fixed-opening{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important;color:#55524a !important}.art-host .container .question-block{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box,.art-host .container .shuorenhua{padding:16px 20px !important}.art-host .container .insight-box p,.art-host .container .shuorenhua p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .insight-box p:last-child,.art-host .container .shuorenhua p:last-child{margin-bottom:0 !important}.art-host .container .insight-box .box-title,.art-host .container .shuorenhua .box-title,.art-host .container .actuary-practice .box-title,.art-host .container .chapter-mini .box-title,.art-host .container .alert-box .box-title,.art-host .container .action-item .box-title,.art-host .container .margin-calc .box-title,.art-host .container .action-tips .box-title{font-weight:700 !important;margin-bottom:6px !important;padding-bottom:6px !important;border-bottom:1px dashed rgba(187,138,31,.45) !important}.art-host .container .actuary-practice p,.art-host .container .chapter-mini p,.art-host .container .alert-box p,.art-host .container .action-item p,.art-host .container .margin-calc p,.art-host .container .action-tips p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .actuary-practice p:last-child,.art-host .container .chapter-mini p:last-child,.art-host .container .alert-box p:last-child,.art-host .container .action-item p:last-child,.art-host .container .margin-calc p:last-child,.art-host .container .action-tips p:last-child{margin-bottom:0 !important}.art-host .container .actuary-practice,.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .action-item,.art-host .container .margin-calc,.art-host .container .action-tips{padding:16px 20px !important}.art-host .container .actuary-practice{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important}.art-host .container .shuorenhua{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important}.art-host .container .core-conclusion{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important;padding:18px 22px !important}.art-host .container .core-conclusion p{margin:10px 0 !important;line-height:1.95 !important}.art-host .container .action-tips{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card h4{color:#b53d2e !important}.art-host .container .tool-badge{background:#2f6b5a !important}.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .italic-quote,.art-host .container .metric-badge,.art-host .container .action-item{line-height:1.95 !important;font-size:14.5px !important;color:#3a382f !important}.chap-banner{margin:0 0 24px;border:1px solid #e0d8c4;border-radius:14px;overflow:hidden}.chap-banner svg{display:block;width:100%;height:auto}</style>
+<div class="container"><figure class="chap-banner"><svg viewBox="0 0 680 190" role="img" aria-label="章节插画：资产负债管理"><rect width="680" height="190" fill="#fcf5e6"/><circle cx="598" cy="54" r="44" fill="#e6b45c" opacity="0.10"/><circle cx="598" cy="54" r="28" fill="#e6b45c" opacity="0.16"/><circle cx="598" cy="54" r="14" fill="#e6b45c" opacity="0.85"/><ellipse cx="340" cy="172" rx="305" ry="9" fill="#e3d5b4" opacity="0.5"/><path d="M340 52 v84" stroke="#3a3428" stroke-width="3.5"/><path d="M230 74 L450 74" stroke="#3a3428" stroke-width="3"/><path d="M340 136 q-60 12 -110 -18 M340 136 q60 12 110 -18" fill="none" stroke="#e3d5b4" stroke-width="2" opacity="0.5"/><rect x="180" y="96" width="100" height="34" rx="7" fill="#3d7a66"/><rect x="400" y="44" width="100" height="34" rx="7" fill="#bf5638"/><text x="230" y="118" font-size="12.5" fill="#f5f1e6" text-anchor="middle" font-family="serif">资产端 · 期限匹配</text><text x="450" y="66" font-size="12.5" fill="#f5f1e6" text-anchor="middle" font-family="serif">负债端 · 别拿短配长</text></svg></figure>
+    <h1>精算思维 · 第14章：资产负债管理——不要拿短钱配长资产</h1>
+    <div class="subtitle">像精算师一样思考 · 风险优先级力（下）</div>
+
+    <div class="fixed-opening">
+        ⚡ 不推销，只讲逻辑。花10分钟读完，比你自己瞎研究一个月都有用。
+    </div>
+
+    <div class="question-block">
+        <p>❓ 很多朋友问我：</p>
+        <p>“为什么有的保险公司会因为利率下行而破产？”</p>
+        <p>“我把买房首付款拿去买了股票，结果亏了，怎么办？”</p>
+        <p>“精算师说的‘资产负债管理’跟我有什么关系？”</p>
+        <p style="margin-top: 12px;">📌 这些问题，指向精算思维中风险优先级力的最后一个模块——<strong>资产负债管理（ALM）</strong>。它的核心原则只有一条：<strong>让资产的期限、风险和流动性，与负债的期限、风险和流动性匹配。</strong> 说得再直白些：不要拿短期的钱去配长期的资产，也不要拿长期的钱趴在短期资产上。</p>
+    </div>
+
+    
+    <h2>一、专业概念：资产负债管理（ALM）</h2>
+    <h3>1. 什么是ALM？</h3>
+    <p><strong>资产负债管理（Asset-Liability Management, ALM）</strong>，是精算师和财务管理者用来协调资产端（投资、收益）和负债端（未来需支付的现金）的方法。目标是确保公司在任何时间点都有足够的现金履行义务，同时最大化长期收益。</p>
+    <div class="insight-box">
+        <p class="box-title"><strong>📌 核心维度：</strong></p>
+        <p>- 期限匹配：负债多久到期，资产就投多久</p>
+        <p>- 利率匹配：负债对利率敏感，资产也要同向敏感（或免疫）</p>
+        <p>- 流动性匹配：随时要付的钱，放在随时能取的资产里</p>
+        <p>- 币种匹配：收什么币种，付什么币种</p>
+    </div>
+
+    <h3>2. 为什么ALM如此重要？——案例：日本寿险危机</h3>
+    <p>1990年代，日本多家寿险公司销售了大量预定利率5%-6%的储蓄保单（负债成本高）。随后日本利率一路下行至0%，而公司资产主要配置在国债和贷款上，收益率跌到1%-2%。结果出现巨大的<strong>利差损</strong>（投资收益 < 保单成本），多家公司破产。</p>
+    <p>根本原因：<strong>资产负债期限和利率严重错配</strong>——长期高成本的负债，匹配了低收益、短久期的资产。</p>
+
+    <div class="shuorenhua">
+        <strong>💡 说人话：</strong> ALM就像婚姻。负债是“你要花的钱”，资产是“你赚的钱”。如果赚钱的时间和花钱的时间对不上，或者赚钱的方式和花钱的节奏不匹配，就会财务“离婚”——破产。
+    </div>
+
+    <h3>3. 精算中的久期匹配（免疫策略）</h3>
+    <p><strong>久期（Duration）</strong>是加权平均回本时间。精算师会计算负债的久期，然后配置相同久期的资产。当利率变动时，资产和负债的价值变化相互抵消，这就是<strong>免疫策略</strong>。</p>
+    <p>例如：一家年金保险公司预计未来30年平均每年需支付10亿。精算师会配置30年期国债或其他长久期资产，使得资产久期≈负债久期，利率风险自然对冲。</p>
+
+    
+    <h2>二、精算实践：保险公司如何做ALM</h2>
+    <div class="actuary-practice">
+        <p class="box-title"><strong>📋 一个精算师的真实工作场景</strong></p>
+        <p>我曾在资产负债管理委员会（ALCO）工作。每季度，我们都要评估资产和负债的匹配状况。</p>
+        <p><strong>典型会议议程：</strong></p>
+        <p>1️⃣ 分析当前利率、股市、信用利差的变化</p>
+        <p>2️⃣ 计算资产和负债的久期缺口（资产久期 - 负债久期）</p>
+        <p>3️⃣ 如果缺口超过0.5年，就要调整资产配置</p>
+        <p>4️⃣ 压力测试：如果利率上升200bp，偿付能力会下降多少？</p>
+        <p><strong>真实案例：</strong> 2017年，我们公司长期负债的平均久期为15年，但资产久期只有8年。这意味着未来若利率下行，资产增值较少，而负债现值上升较多，导致偿付能力恶化。解决方案：卖出部分短期债券，买入30年期国债和长久期基础设施债权计划，将久期提升到13年。</p>
+        <p><span style="background-color:#fff2cf; padding:2px 6px; border-radius:12px;">📌 精算师视角：</span> ALM不是“不做高风险投资”，而是“让高风险匹配高风险承受能力”。养老基金因为负债极其长期，可以配置大量股票；而财险公司负债期短，必须配更多现金和短债。</p>
+    </div>
+
+    <div class="insight-box">
+        <p class="box-title"><strong>📈 延伸精算概念：动态资产配置（Dynamic Asset Allocation）</strong></p>
+        <p>精算师不会静态锁定一个久期。他们会设定上下限（如久期8-12年），然后根据市场预期和偿付能力状况动态调整。但在市场极端波动时，有时会采取“再平衡”而非追涨杀跌。这也是长期主义的具体体现。</p>
+    </div>
+
+    
+    <h2>三、生活应用：给你的资产负债做“匹配体检”</h2>
+    <h3>1. 个人资产负债表的两个维度</h3>
+    <p>把你的财务状况按时间切分：</p>
+    <div class="alm-table">
+        <strong>时间轴匹配表</strong>
+        <table style="margin:8px 0;">
+            <thead><tr><th>时间范围</th><th>负债（需要用钱的地方）</th><th>资产（可用的资金来源）</th></tr></thead>
+            <tbody>
+                <tr><td>1年内</td><td>日常开销、信用卡、短期借款、保险费</td><td>活期存款、货币基金、工资流水</td></tr>
+                <tr><td>1-5年</td><td>买房首付、买车、结婚、子女教育首期</td><td>定期存款、稳健理财、部分股票</td></tr>
+                <tr><td>5年以上</td><td>房贷剩余本金、养老、子女大学、长期护理</td><td>股票指数、长期国债、房产、保险年金</td></td>
+            </tbody>
+        </table>
+    </div>
+
+    <h3>2. 最常见的个人错配陷阱</h3>
+    <ul>
+        <li><strong>短钱长投（流动性错配）</strong>：把下个月要付的房租/学费投入股票。一旦市场下跌，被迫割肉。→ 正确做法：1年内要用的钱只存活期或货币基金。</li>
+        <li><strong>长钱短配（收益错配）</strong>：把30年后的养老金放在活期存款，跑输通胀。→ 正确做法：长期资金应配置权益类资产或长久期债券，享受复利。</li>
+        <li><strong>利率错配</strong>：浮动利率负债（如消费贷、信用卡分期）却配置固定收益低风险资产 → 利率上升时，负债成本大涨，资产收益不变，利差损。</li>
+        <li><strong>币种错配</strong>：以人民币负债（房贷），却持有大量美元资产 → 汇率波动风险。</li>
+    </ul>
+    <div class="alert-box">
+        <strong>⚠️ 精算警告：</strong> 很多人用买房首付款炒股，结果亏损后买不了房；也有人在牛市把所有钱投入股票，结果需要用钱时正好是熊市底部。这些都是没有做资产负债管理的后果。
+    </div>
+
+    <h3>3. 个人ALM实操三步骤</h3>
+    <p><strong>步骤1：列出未来5年的大额支出</strong>（时间、金额、确定性）</p>
+    <p><strong>步骤2：为每个支出匹配资产</strong>：<br>
+    - 1年内：现金/货基（不追求收益）<br>
+    - 1-3年：银行理财、短债基金<br>
+    - 3-5年：二级债基、平衡型基金<br>
+    - 5年以上：权益类、长期国债、房产</p>
+    <p><strong>步骤3：定期再平衡</strong>：每年检查一次，把即将到期的支出从长期资产转移到短期资产。</p>
+
+    <div class="core-conclusion">
+        <strong>🎯 核心原则：</strong> 不要用短期负债去赌长期资产的短期价格。你无法控制市场何时涨跌，但你可以控制负债和资产的期限匹配。匹配做好了，波动就不再是风险。
+    </div>
+
+    
+    <h2>四、生活类比：三条腿的凳子 vs 跷跷板</h2>
+    <p>资产负债错配的人就像坐在<strong>跷跷板</strong>上：一边是资产价格上下波动，一边是负债随时要还。市场一颠簸，人就摔下来。</p>
+    <p>而做了ALM的人坐在<strong>三条腿的凳子</strong>上：短期负债有短期资产覆盖，长期负债有长期资产支撑，中间还有流动性缓冲。无论市场怎么晃，凳子都稳。</p>
+    <p><strong>精算思维就是让你从跷跷板换到四条腿的凳子。</strong></p>
+
+    
+    <h2>五、精算师视角：ALM是底线思维，不是收益最大化</h2>
+    <p>有人问：“按你这么说，长期资金都投权益，短期都存活期，那怎么提高收益？”</p>
+    <p>精算师的回答是：ALM的首要目标是<strong>确保在任何时点都不会违约</strong>。在保证这一点的基础上，再去优化收益。你无法通过牺牲“短期必花的钱”去博取高收益——因为一旦亏损，你的基本生活就崩了。</p>
+    <p>所以，ALM的本质是“<strong>先保底，再博高</strong>”。保底的钱要足够安全；闲钱可以去冒险。</p>
+    <div class="shuorenhua">
+        <p class="box-title"><strong>💡 生活启示：</strong> 把你所有的钱分成三份：</p>
+        <p>- <strong>“现在要花的钱”</strong>（1年内）：活期、货基</p>
+        <p>- <strong>“以后要花的钱”</strong>（1-5年）：稳健理财</p>
+        <p>- <strong>“一直不花的钱”</strong>（5年以上）：长期投资（权益、房产）</p>
+        <p>每份钱都有自己的使命。不要挪用“以后要花的钱”去博短期收益。</p>
+    </div>
+
+    
+    <h2>六、给你的行动建议</h2>
+    <div class="action-tips">
+        
+        <p><strong>✅ 行动清单：</strong></p>
+        <p>1️⃣ <strong>画出你的个人资产负债匹配表</strong></p>
+        <p>在纸上画一条5年的时间轴，标出未来每一年的大额支出（学费、首付、旅行、换车）。然后在右边列出你目前持有的资产及各自的流动性/期限。检查：是否有“明年要付的首付款，却投在3年封闭期理财”的情况？如果有，立即调整。</p>
+        <p>2️⃣ <strong>建立“应急金防火墙”</strong></p>
+        <p>把相当于6个月支出的应急金单独放在一个账户（活期或货币基金），绝不用于任何投资。这是你应对“负债突然提前”的安全垫。</p>
+        <p>3️⃣ <strong>定期做“久期检视”</strong></p>
+        <p>每半年看一次：距离需要用钱的时间越来越近时，提前3-6个月把对应的资产从波动较大的品种转移到现金/短债。不要等到最后一个月才发现股票被套。</p>
+        <p>4️⃣ <strong>别让房贷利率吃掉你的流动性</strong></p>
+        <p>如果有浮动利率贷款，考虑是否转换为固定利率，或增加现金储备应对利率上升。</p>
+    
+    </div>
+    <div class="shuorenhua">
+        <p class="box-title"><strong>✅ 本周练习：</strong></p>
+        <p>打开你的银行和理财账户，统计“3个月以内需要用到的钱”（比如房租、信用卡、旅行预算）是多少。看看这些钱是否放在随时可取的地方。如果不是，立刻转出到活期或货币基金。同时，看看“3年后才需要用到的钱”是否都趴在活期里？如果是，考虑转到长期定投或债券基金，享受时间复利。</p>
+    </div>
+
+    
+    
+
+    
+    
+
+    
+    <div class="speed-card">
+        <h4>📌 本章核心概念速记卡</h4>
+        <table>
+            <thead><tr><th>中文</th><th>英文</th><th>一句话大白话</th></tr></thead>
+            <tbody>
+                <tr><td>资产负债管理</td><td>Asset-Liability Management (ALM)</td><td>让你的资产和负债在时间、利率、流动性上配对</td></tr>
+                <tr><td>久期</td><td>Duration</td><td>——加权平均回本时间，衡量价格对利率的敏感度</td></tr>
+                <tr><td>免疫策略</td><td>Immunization</td><td>让资产和负债久期相等，利率风险相互抵消</td></tr>
+                <tr><td>利差损</td><td>Spread Loss</td><td>投资收益 < 负债成本，公司亏钱</td></tr>
+                <tr><td>流动性错配</td><td>Liquidity Mismatch</td><td>短期负债配长期资产，要用钱时拿不出来</td></tr>
+                <tr><td>期限匹配</td><td>Maturity Matching</td><td>几年的负债配几年的资产，别交叉</td></tr>
+            </tbody>
+        </table>
+        <div class="shuorenhua" style="margin-top: 16px;">
+            💡 <strong>延伸思考：</strong> 资产负债管理是精算思维中最“保守”的部分，但也是最重要的。它确保你不会因为一次运气不好就退出游戏。很多投资大师破产不是因为判断失误，而是因为“期限错配”——被迫在不利时点卖出。个人ALM可能不会让你一夜暴富，但它让你永远留在牌桌上。而留在牌桌上，是赢钱的唯一前提。
+        </div>
+    </div>
+    </div>
+</div>
+<div class="pager"><a href="15-再保险.html"><small>← 上一篇</small>第13章 · 再保险</a><a class="next" href="17-翻译三栏表.html"><small>下一篇 →</small>第15章 · 翻译三栏表</a></div>
+<footer class="colophon">精算思维 · 西红精算 · 不推销，只讲逻辑<br>本文只讲思维与方法，不构成任何投资或投保建议。</footer>
+</main>
+<script src="js/kb.js"></script>
+</body>
+</html>

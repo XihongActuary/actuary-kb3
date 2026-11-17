@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精算思维 · 第6章：滚动预测</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-id="07">
+<button class="navbtn" type="button">☰ 目录</button>
+<aside class="side">
+  <div class="brand"><b>精算思维</b><span>不止于保险——像精算师一样思考，过好这一生</span></div>
+  <nav>
+<a href="index.html">进入知识库 · 全书目录</a>
+<div class="grp">开卷</div>
+<a href="00-序言.html">序言 · 精算思维为什么是必修课</a>
+<div class="grp">第一部分 · 跨期折现力</div>
+<a href="01-折现.html">第1章 · 折现</a>
+<a href="02-净现值与内含价值.html">第2章 · 净现值与内含价值</a>
+<a href="03-内含价值.html">第3章 · 内含价值</a>
+<a href="04-长期总账.html">第4章 · 长期总账</a>
+<a href="05-第一部分总结.html">第一部分总结 · 跨期折现力</a>
+<div class="grp">第二部分 · 动态修正与反馈力</div>
+<a href="06-经验分析.html">第5章 · 经验分析</a>
+<a href="07-滚动预测.html" class="on">第6章 · 滚动预测</a>
+<a href="08-随机模拟与反馈闭环.html">第7章 · 随机模拟与反馈闭环</a>
+<a href="09-第二部分总结.html">第二部分总结 · 动态修正与反馈力</a>
+<div class="grp">第三部分 · 安全边际与兜底力</div>
+<a href="10-风险边际.html">第8章 · 风险边际</a>
+<a href="11-偿付能力资本.html">第9章 · 偿付能力资本</a>
+<a href="12-审慎原则与关键风险.html">第10章 · 审慎原则与关键风险</a>
+<a href="13-黑天鹅准备.html">第11章 · 黑天鹅准备</a>
+<div class="grp">第四部分 · 风险优先级力</div>
+<a href="14-四象限矩阵.html">第12章 · 四象限矩阵</a>
+<a href="15-再保险.html">第13章 · 再保险</a>
+<a href="16-资产负债管理.html">第14章 · 资产负债管理</a>
+<div class="grp">第五部分 · 沟通翻译力</div>
+<a href="17-翻译三栏表.html">第15章 · 翻译三栏表</a>
+<a href="18-受众分层.html">第16章 · 受众分层翻译</a>
+<a href="19-反人性沟通.html">第17章 · 反人性沟通</a>
+<div class="grp">第六部分 · 人生全局平衡力</div>
+<a href="20-人生资产负债表.html">第18章 · 人生资产负债表</a>
+<a href="21-多目标优化.html">第19章 · 多目标优化</a>
+<a href="22-可持续平衡.html">第20章 · 可持续平衡</a>
+<div class="grp">收官</div>
+<a href="23-结语.html">结语 · 30 天打卡表</a>
+<a href="24-全书总结.html">全书总结 · 六大能力与术语速查</a>
+<div class="grp">关于</div>
+<a href="resources.html">延伸资源 · 官方外链与姊妹站</a>
+<a href="xihong.html">关于 · 西红精算</a>
+  </nav>
+  <div class="prog-mini">已读 <b id="kb-mini">0 / 25</b> 页<br>点每页右下角按钮记录进度</div>
+</aside>
+<main class="main">
+<div class="art-host">
+<style>
+.art-host *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+.art-host body{
+            background-color: #f7f9fc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.68;
+            color: #1f2d3d;
+            padding: 20px 0 50px;
+        }
+.art-host .container{
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 28px 22px 48px;
+        }
+@media (max-width: 560px){.art-host .container{
+                padding: 22px 18px 40px;
+                margin: 0 12px;
+            }}
+.art-host h1{
+            font-size: 1.9rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0.2rem 0 0.5rem 0;
+            color: #0b2b3b;
+            letter-spacing: -0.3px;
+            border-left: 5px solid #2c7da0;
+            padding-left: 18px;
+        }
+.art-host .subtitle{
+            font-size: 1rem;
+            color: #2c7da0;
+            font-weight: 500;
+            margin: 10px 0 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+.art-host .fixed-opening{
+            background-color: #f0f4fa;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 24px 0 20px;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+            color: #1e4660;
+        }
+.art-host .question-block{
+            background: #fef9e8;
+            border-left: 4px solid #f5a623;
+            padding: 14px 18px;
+            margin: 24px 0;
+            border-radius: 16px;
+        }
+.art-host .question-block p{
+            margin: 6px 0;
+            font-weight: 500;
+        }
+.art-host h2{
+            font-size: 1.65rem;
+            font-weight: 650;
+            margin: 1.6em 0 0.6em;
+            color: #1f4e6e;
+            border-left: 4px solid #2c7da0;
+            padding-left: 14px;
+        }
+.art-host h3{
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.4em 0 0.4em;
+            color: #285e7a;
+        }
+.art-host .insight-box{
+            background-color: #fef5e8;
+            border-left: 4px solid #f39c12;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+.art-host .actuary-practice{
+            background-color: #eef4fc;
+            border-left: 4px solid #2c7da0;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+        }
+.art-host .shuorenhua{
+            background-color: #f0f4fa;
+            padding: 14px 20px;
+            border-radius: 20px;
+            margin: 1.2em 0;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+        }
+.art-host .action-tips{
+            background-color: #eef2f7;
+            border-radius: 22px;
+            padding: 20px 24px;
+            margin: 1.8em 0;
+            border: 1px solid #dce5ec;
+        }
+.art-host .alert-box{
+            background-color: #fee9e6;
+            border-left: 4px solid #dc2626;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host .core-conclusion{
+            background: #e6f7ec;
+            border-left: 4px solid #2e7d32;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.9rem;
+        }
+.art-host th,.art-host td{
+            border: 1px solid #d4dce6;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+.art-host th{
+            background-color: #eef2f8;
+            font-weight: 600;
+        }
+.art-host .speed-card{
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 10px 18px 18px;
+            margin: 28px 0 20px;
+            border: 1px solid #e2edf2;
+        }
+.art-host .speed-card h4{
+            font-size: 1.3rem;
+            margin: 0.6rem 0 1rem;
+            color: #0e4b6e;
+        }
+.art-host footer{
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid #e2edf0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4f6f8f;
+        }
+.art-host .next-chapter{
+            background: #e1edf5;
+            padding: 16px 22px;
+            border-radius: 28px;
+            margin: 32px 0 16px;
+            font-weight: 500;
+        }
+.art-host hr{
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+.art-host .action-item{
+            margin: 12px 0;
+        }
+.art-host .plan-table{
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #dce5ec;
+            padding: 12px;
+            margin: 16px 0;
+        }
+</style>
+<style>.art-host .container{max-width:800px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:none;padding:30px 26px 40px}.art-host .container h1{font-size:22px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:14px !important;font-family:var(--serif);line-height:1.55 !important;letter-spacing:1px}.art-host .container .subtitle{color:#2f6b5a !important;font-weight:500;font-size:1rem !important;margin:10px 0 20px 0 !important;border-bottom:1px dashed #cfc5ab !important;padding-bottom:12px !important;line-height:1.7 !important}.art-host .container h2{font-size:20px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:12px !important;margin:34px 0 14px !important;line-height:1.55 !important;font-family:var(--serif);letter-spacing:1px}.art-host .container h3{font-size:16.5px !important;color:#2f6b5a !important;margin:24px 0 12px !important;line-height:1.6 !important;font-family:var(--serif)}.art-host .container h4{font-size:15px !important;color:#2b2a26 !important;margin:18px 0 10px !important;line-height:1.6 !important}.art-host .container p{line-height:2.05 !important;margin:0 0 14px !important;font-size:15.5px !important;color:#3a382f !important;font-family:inherit}.art-host .container li{line-height:2 !important;font-size:15px !important;color:#3a382f !important}.art-host .container strong{color:#2b2a26 !important}.art-host .container a{color:#2f6b5a !important}.art-host .container hr{border:none;border-top:1px dashed #cfc5ab;margin:26px 0 !important}.art-host .container table{border-collapse:collapse !important}.art-host .container th{background:#f1ead8 !important;border:1px solid #e0d8c4 !important;color:#2b2a26 !important}.art-host .container td{border:1px solid #e0d8c4 !important;color:#3a382f !important}.art-host .container .fixed-opening{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important;color:#55524a !important}.art-host .container .question-block{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box,.art-host .container .shuorenhua{padding:16px 20px !important}.art-host .container .insight-box p,.art-host .container .shuorenhua p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .insight-box p:last-child,.art-host .container .shuorenhua p:last-child{margin-bottom:0 !important}.art-host .container .insight-box .box-title,.art-host .container .shuorenhua .box-title,.art-host .container .actuary-practice .box-title,.art-host .container .chapter-mini .box-title,.art-host .container .alert-box .box-title,.art-host .container .action-item .box-title,.art-host .container .margin-calc .box-title,.art-host .container .action-tips .box-title{font-weight:700 !important;margin-bottom:6px !important;padding-bottom:6px !important;border-bottom:1px dashed rgba(187,138,31,.45) !important}.art-host .container .actuary-practice p,.art-host .container .chapter-mini p,.art-host .container .alert-box p,.art-host .container .action-item p,.art-host .container .margin-calc p,.art-host .container .action-tips p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .actuary-practice p:last-child,.art-host .container .chapter-mini p:last-child,.art-host .container .alert-box p:last-child,.art-host .container .action-item p:last-child,.art-host .container .margin-calc p:last-child,.art-host .container .action-tips p:last-child{margin-bottom:0 !important}.art-host .container .actuary-practice,.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .action-item,.art-host .container .margin-calc,.art-host .container .action-tips{padding:16px 20px !important}.art-host .container .actuary-practice{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important}.art-host .container .shuorenhua{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important}.art-host .container .core-conclusion{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important;padding:18px 22px !important}.art-host .container .core-conclusion p{margin:10px 0 !important;line-height:1.95 !important}.art-host .container .action-tips{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card h4{color:#b53d2e !important}.art-host .container .tool-badge{background:#2f6b5a !important}.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .italic-quote,.art-host .container .metric-badge,.art-host .container .action-item{line-height:1.95 !important;font-size:14.5px !important;color:#3a382f !important}.chap-banner{margin:0 0 24px;border:1px solid #e0d8c4;border-radius:14px;overflow:hidden}.chap-banner svg{display:block;width:100%;height:auto}</style>
+<div class="container"><figure class="chap-banner"><svg viewBox="0 0 680 190" role="img" aria-label="章节插画：滚动预测"><rect width="680" height="190" fill="#fcf5e6"/><circle cx="598" cy="54" r="44" fill="#e6b45c" opacity="0.10"/><circle cx="598" cy="54" r="28" fill="#e6b45c" opacity="0.16"/><circle cx="598" cy="54" r="14" fill="#e6b45c" opacity="0.85"/><ellipse cx="340" cy="172" rx="305" ry="9" fill="#e3d5b4" opacity="0.5"/><circle cx="340" cy="96" r="52" fill="none" stroke="#3d7a66" stroke-width="3" stroke-dasharray="10 7"/><circle cx="340" cy="44" r="17" fill="#3d7a66"/><text x="340" y="48" font-size="11" fill="#f5f1e6" text-anchor="middle" font-family="serif">Q1</text><circle cx="392" cy="96" r="17" fill="#c98f2b"/><text x="392" y="100" font-size="11" fill="#f5f1e6" text-anchor="middle" font-family="serif">Q2</text><circle cx="340" cy="148" r="17" fill="#bf5638"/><text x="340" y="152" font-size="11" fill="#f5f1e6" text-anchor="middle" font-family="serif">Q3</text><circle cx="288" cy="96" r="17" fill="#e3d5b4"/><text x="288" y="100" font-size="11" fill="#f5f1e6" text-anchor="middle" font-family="serif">Q4</text><path d="M392 78 a52 52 0 0 0 -34 -26" fill="none" stroke="#3a3428" stroke-width="3"/><text x="470" y="102" font-size="13.5" fill="#3a3428" font-family="serif">每季重排，永远导航</text></svg></figure>
+    <h1>精算思维 · 第6章：滚动预测——扔掉年度预算的僵化</h1>
+    <div class="subtitle">像精算师一样思考 · 动态修正与反馈力（续）</div>
+
+    <div class="fixed-opening">
+        ⚡ 不推销，只讲逻辑。花10分钟读完，比你自己瞎研究一个月都有用。
+    </div>
+
+    <div class="question-block">
+        <p>❓ 很多朋友问我：</p>
+        <p>“为什么我年初制定的年度计划，到3月份就完全执行不下去了？”</p>
+        <p>“保险公司每年做那么复杂的预算，市场一变不就废了吗？”</p>
+        <p>“有没有一种方法，既能规划未来，又不怕变化？”</p>
+        <p style="margin-top: 12px;">📌 这些问题，都指向精算思维中的动态管理工具——<strong>滚动预测（Rolling Forecast）</strong>。精算师不迷信“一年定终身”，而是每季度根据最新数据刷新未来12-18个月的预测，让计划成为活地图，而不是死路线。</p>
+    </div>
+
+    
+    <h2>一、专业概念：什么是滚动预测？</h2>
+    <h3>1. 年度预算的弊端</h3>
+    <p>传统年度预算流程：每年9-12月做下一年的预算，一旦通过就锁死。问题是：<strong>市场、客户、成本都在变，但预算不变</strong>。结果是：各部门为了“花完预算”而浪费，或者因为预算不足而错失机会。</p>
+    <div class="insight-box">
+        <strong>📌 精算师视角：</strong> 年度预算是“一次性假设”，而滚动预测是“持续修正”。精算师不追求预测准确，而是追求<strong>快速发现偏差并调整</strong>。
+    </div>
+
+    <h3>2. 滚动预测怎么做？</h3>
+    <p>滚动预测的核心：<strong>每个季度（或每月）刷新一次未来12-18个月的预测</strong>。例如：</p>
+    <ul>
+        <li>1季度末：做Q2、Q3、Q4、明年Q1的预测</li>
+        <li>2季度末：做Q3、Q4、明年Q1、明年Q2的预测</li>
+        <li>以此类推，永远保持未来4-6个季度的展望</li>
+    </ul>
+    <p>每次刷新时，会加入最新的实际数据、市场信息，并重新评估假设。</p>
+
+    <div class="shuorenhua">
+        <strong>💡 说人话：</strong> 年度预算像一张发黄的旧地图，滚动预测像手机导航——走错了会立刻重新规划。
+    </div>
+
+    <h3>3. 滚动预测 vs 年度预算</h3>
+    <table>
+        <thead><tr><th>维度</th><th>年度预算</th><th>滚动预测</th></tr></thead>
+        <tbody>
+            <tr><td>更新频率</td><td>一年一次</td><td>每季度/每月</td></tr>
+            <tr><td>时间跨度</td><td>固定日历年度</td><td>未来12-18个月，不断前移</td></tr>
+            <tr><td>应对变化</td><td>僵化，需特批调整</td><td>主动适应，常态化修正</td></tr>
+            <tr><td>心理效应</td><td>“预算定了就不能改”</td><td>“预测就是用来更新的”</td></tr>
+            <tr><td>精算思维关联</td><td>静态思维</td><td>动态修正力</td></tr>
+        </tbody>
+    </table>
+
+    
+    <h2>二、精算实践：保险公司的季度经营分析会</h2>
+    <div class="actuary-practice">
+        <p class="box-title"><strong>📋 一个精算师的真实工作场景</strong></p>
+        <p>我在一家财险公司时，每季度末都会召开“经营分析暨滚动预测会”。流程如下：</p>
+        <p>1️⃣ 回顾本季度实际经营数据：保费收入、赔付率、费用率、投资回报</p>
+        <p>2️⃣ 对比季度初的预测，分析偏差来源（是假设错了，还是出现了意外事件？）</p>
+        <p>3️⃣ 根据最新数据，刷新未来4个季度的预测</p>
+        <p>4️⃣ 调整资源分配：如果车险赔付率恶化，就收紧承保标准；如果意外险利润超预期，就加大推广预算</p>
+        <p><span style="background-color:#fff2cf; padding:2px 6px; border-radius:12px;">📌 真实案例：</span> 2019年Q2，我们发现某地区的车险赔付率从62%跳升到78%。通过滚动预测，我们及时判断这是趋势性恶化（而非偶发），立刻向总公司申请上调该地区保费并收紧核保。而隔壁一家没有滚动预测的竞争对手，直到年底才发现，当年该地区车险亏损了2个亿。</p>
+        <p><strong>精算师结论：</strong> 滚动预测不是让你预测得更准，而是让你<strong>更快地发现偏差，更早地采取行动</strong>。</p>
+    </div>
+
+    <div class="insight-box">
+        <p class="box-title"><strong>📈 延伸精算概念：动态财务预测（Dynamic Financial Analysis, DFA）</strong></p>
+        <p>大型保险公司会使用DFA模型，将滚动预测与随机模拟结合。每季度输入最新数据，模型自动生成未来3-5年的盈余分布、偿付能力概率等。这不仅是管理工具，更是监管要求的压力测试基础。</p>
+    </div>
+
+    
+    <h2>三、生活应用：个人季度回顾日</h2>
+    <h3>1. 为什么你的年度计划总落空？</h3>
+    <p>因为你在1月1日制定了12个月的计划，然后就不管了。到了3月发现走偏，但因为“计划已经定了”，要么硬扛，要么放弃。滚动预测思维告诉你：<strong>计划不是枷锁，是基线。每季度校准一次。</strong></p>
+
+    <h3>2. 设立“季度回顾日”</h3>
+    <p>每季度最后一周的周日，固定花1-2小时做个人滚动计划。步骤：</p>
+    <ul>
+        <li><strong>回顾本季度关键指标</strong>：存款额、体重、学习时长、项目进度</li>
+        <li><strong>分析偏差</strong>：哪些超出预期？哪些落后？为什么？</li>
+        <li><strong>刷新未来12个月的计划</strong>：保留原目标，但调整路径和时间点</li>
+        <li><strong>更新下季度具体行动</strong>：把大目标拆成下一季度的周任务</li>
+    </ul>
+
+    <div class="core-conclusion">
+        <p><strong>📅 个人滚动预测表示例（季度更新）</strong>
+        <div class="plan-table">
+            <p><strong>目标：3年内攒够60万首付</strong></p>
+        <p>Q1实际新增储蓄：4.2万（目标4万，+0.2万）</p>
+        <p>Q2-Q4原计划各4万，合计12万。</p>
+        <p>但发现Q3预计有一笔1.5万旅游支出，需要调整：Q2多存0.5万，Q3少存1万，Q4不变。</p>
+        <p>→ 刷新后全年储蓄目标仍为16.2万（4.2+4.5+3+4.5），但季度节奏变了。</p>
+        <p><strong>精算思维：</strong> 目标不变，路径灵活。</p></p>
+    </div>
+    </div>
+
+    <h3>3. 用滚动预测管理学习/健身计划</h3>
+    <p>例：年度目标“跑完一场马拉松”。年度计划是“每月跑100公里”。2月份实际只跑了60公里。传统思维：“我完了，放弃吧”。滚动预测思维：<br>
+    → 分析原因（2月过年+下雨）<br>
+    → 调整未来3个月的月目标：3月120公里，4月110公里，5月100公里，补回缺口<br>
+    → 目标不变，路径滚动调整。</p>
+
+    <div class="alert-box">
+        <strong>⚠️ 常见错误：</strong> 季度回顾时只做“记录”，不做“预测刷新”。精算思维要求你不仅回头看，更要向前看——根据新信息重新规划未来。
+    </div>
+
+    
+    <h2>四、生活类比：开车用导航</h2>
+    <p>你设定了目的地（年度目标）。导航给你建议路线（年度计划）。但上路后遇到堵车（市场变化），导航立刻重新计算，给你新路线（滚动预测）。</p>
+    <p>如果导航给你一条路线后就不再更新，你会疯掉。同样，一份不更新的年度计划，就是死地图。</p>
+    <p><strong>精算思维就是让你的“人生导航”打开实时路况功能。</strong></p>
+
+    
+    <h2>五、精算师视角：预测不是为了“准”，而是为了“快”</h2>
+    <p>很多公司管理者要求精算师“预测要准”。但资深精算师知道：<strong>预测永远不可能准，因为未来充满不确定性。</strong> 所以精算师不追求“准”，而追求：</p>
+    <ul>
+        <li><strong>偏差可解释</strong>：能够说清楚为什么实际和预测不一样</li>
+        <li><strong>调整周期短</strong>：快速修正，不积压偏差</li>
+        <li><strong>行动导向</strong>：每次预测刷新都直接指向资源调配</li>
+    </ul>
+    <div class="shuorenhua">
+        <strong>💡 生活启示：</strong> 个人做滚动预测时，也别纠结“偏差太大不好意思”。偏差大是常态，关键是你有没有及时调整下一阶段的计划。没有人能正确预测未来，但有人能快速适应未来。
+    </div>
+
+    
+    <h2>六、给你的行动建议</h2>
+    <div class="action-tips">
+        
+        <p><strong>✅ 行动清单：</strong></p>
+        <p>1️⃣ <strong>设置你的季度回顾日</strong></p>
+        <p>在日历上标记：3月最后一周日、6月最后一周日、9月最后一周日、12月最后一周日。每次固定时间做滚动预测。</p>
+        <p>2️⃣ <strong>制作一张“年度滚动计划表”</strong></p>
+        <p>用Excel或笔记本，列出现有的年度目标，然后就每一项目标写上：</p>
+        <p>- Q1实际进度</p>
+        <p>- 偏差原因</p>
+        <p>- Q2-Q4修正后的季度目标（可以改变每个季度的比重）</p>
+        <p>3️⃣ <strong>测试“双周滚动”小循环</strong></p>
+        <p>如果你觉得季度太长，可以从“双周滚动”开始。每两周回顾一次，刷新未来4周的计划。很多高效能人士使用的“冲刺-回顾”模式，本质上就是滚动预测。</p>
+    
+    </div>
+    <div class="shuorenhua">
+        <p class="box-title"><strong>✅ 本周练习：</strong></p>
+        <p>选一个你正在进行的项目（工作或生活）。拿出最初的项目计划，对比当前实际进度。计算完成率偏差。然后，不考虑“原计划”，直接根据当前情况，重新估算剩余部分的完成时间，并写下三个可以调整的新行动。你就完成了一次滚动预测。</p>
+    </div>
+
+    
+    
+
+    
+    
+
+    
+    <div class="speed-card">
+        <h4>📌 本章核心概念速记卡</h4>
+        <table>
+            <thead><tr><th>中文</th><th>英文</th><th>一句话大白话</th></tr></thead>
+            <tbody>
+                <tr><td>滚动预测</td><td>Rolling Forecast</td><td>每季度刷新未来一年的计划，像导航重新规划路线</td></tr>
+                <tr><td>年度预算</td><td>Annual Budget</td><td>一年定一次，市场变了也硬撑</td></tr>
+                <tr><td>动态财务分析</td><td>Dynamic Financial Analysis (DFA)</td><td>保险公司的滚动预测+随机模拟高级版</td></tr>
+                <tr><td>季度回顾日</td><td>Quarterly Review Day</td><td>个人滚动预测的触发器</td></tr>
+                <tr><td>偏差分析</td><td>Variance Analysis</td><td>实际 vs 预测，找原因</td></tr>
+                <tr><td>预测刷新</td><td>Forecast Refresh</td><td>根据新信息改未来计划</td></tr>
+            </tbody>
+        </table>
+        <div class="shuorenhua" style="margin-top: 16px;">
+            💡 <strong>延伸思考：</strong> 滚动预测的本质是“承认不确定性，并建立适应机制”。那些“计划狂”之所以痛苦，是因为他们把计划当成承诺。精算思维告诉你：计划是假设，不是誓言。每季度更新一次，你的人生会少很多焦虑，多很多弹性。
+        </div>
+    </div>
+    </div>
+</div>
+<div class="pager"><a href="06-经验分析.html"><small>← 上一篇</small>第5章 · 经验分析</a><a class="next" href="08-随机模拟与反馈闭环.html"><small>下一篇 →</small>第7章 · 随机模拟与反馈闭环</a></div>
+<footer class="colophon">精算思维 · 西红精算 · 不推销，只讲逻辑<br>本文只讲思维与方法，不构成任何投资或投保建议。</footer>
+</main>
+<script src="js/kb.js"></script>
+</body>
+</html>

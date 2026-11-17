@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精算思维 · 第5章：经验分析</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-id="06">
+<button class="navbtn" type="button">☰ 目录</button>
+<aside class="side">
+  <div class="brand"><b>精算思维</b><span>不止于保险——像精算师一样思考，过好这一生</span></div>
+  <nav>
+<a href="index.html">进入知识库 · 全书目录</a>
+<div class="grp">开卷</div>
+<a href="00-序言.html">序言 · 精算思维为什么是必修课</a>
+<div class="grp">第一部分 · 跨期折现力</div>
+<a href="01-折现.html">第1章 · 折现</a>
+<a href="02-净现值与内含价值.html">第2章 · 净现值与内含价值</a>
+<a href="03-内含价值.html">第3章 · 内含价值</a>
+<a href="04-长期总账.html">第4章 · 长期总账</a>
+<a href="05-第一部分总结.html">第一部分总结 · 跨期折现力</a>
+<div class="grp">第二部分 · 动态修正与反馈力</div>
+<a href="06-经验分析.html" class="on">第5章 · 经验分析</a>
+<a href="07-滚动预测.html">第6章 · 滚动预测</a>
+<a href="08-随机模拟与反馈闭环.html">第7章 · 随机模拟与反馈闭环</a>
+<a href="09-第二部分总结.html">第二部分总结 · 动态修正与反馈力</a>
+<div class="grp">第三部分 · 安全边际与兜底力</div>
+<a href="10-风险边际.html">第8章 · 风险边际</a>
+<a href="11-偿付能力资本.html">第9章 · 偿付能力资本</a>
+<a href="12-审慎原则与关键风险.html">第10章 · 审慎原则与关键风险</a>
+<a href="13-黑天鹅准备.html">第11章 · 黑天鹅准备</a>
+<div class="grp">第四部分 · 风险优先级力</div>
+<a href="14-四象限矩阵.html">第12章 · 四象限矩阵</a>
+<a href="15-再保险.html">第13章 · 再保险</a>
+<a href="16-资产负债管理.html">第14章 · 资产负债管理</a>
+<div class="grp">第五部分 · 沟通翻译力</div>
+<a href="17-翻译三栏表.html">第15章 · 翻译三栏表</a>
+<a href="18-受众分层.html">第16章 · 受众分层翻译</a>
+<a href="19-反人性沟通.html">第17章 · 反人性沟通</a>
+<div class="grp">第六部分 · 人生全局平衡力</div>
+<a href="20-人生资产负债表.html">第18章 · 人生资产负债表</a>
+<a href="21-多目标优化.html">第19章 · 多目标优化</a>
+<a href="22-可持续平衡.html">第20章 · 可持续平衡</a>
+<div class="grp">收官</div>
+<a href="23-结语.html">结语 · 30 天打卡表</a>
+<a href="24-全书总结.html">全书总结 · 六大能力与术语速查</a>
+<div class="grp">关于</div>
+<a href="resources.html">延伸资源 · 官方外链与姊妹站</a>
+<a href="xihong.html">关于 · 西红精算</a>
+  </nav>
+  <div class="prog-mini">已读 <b id="kb-mini">0 / 25</b> 页<br>点每页右下角按钮记录进度</div>
+</aside>
+<main class="main">
+<div class="art-host">
+<style>
+
+</style>
+<style>.art-host .container{max-width:800px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:none;padding:30px 26px 40px}.art-host .container h1{font-size:22px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:14px !important;font-family:var(--serif);line-height:1.55 !important;letter-spacing:1px}.art-host .container .subtitle{color:#2f6b5a !important;font-weight:500;font-size:1rem !important;margin:10px 0 20px 0 !important;border-bottom:1px dashed #cfc5ab !important;padding-bottom:12px !important;line-height:1.7 !important}.art-host .container h2{font-size:20px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:12px !important;margin:34px 0 14px !important;line-height:1.55 !important;font-family:var(--serif);letter-spacing:1px}.art-host .container h3{font-size:16.5px !important;color:#2f6b5a !important;margin:24px 0 12px !important;line-height:1.6 !important;font-family:var(--serif)}.art-host .container h4{font-size:15px !important;color:#2b2a26 !important;margin:18px 0 10px !important;line-height:1.6 !important}.art-host .container p{line-height:2.05 !important;margin:0 0 14px !important;font-size:15.5px !important;color:#3a382f !important;font-family:inherit}.art-host .container li{line-height:2 !important;font-size:15px !important;color:#3a382f !important}.art-host .container strong{color:#2b2a26 !important}.art-host .container a{color:#2f6b5a !important}.art-host .container hr{border:none;border-top:1px dashed #cfc5ab;margin:26px 0 !important}.art-host .container table{border-collapse:collapse !important}.art-host .container th{background:#f1ead8 !important;border:1px solid #e0d8c4 !important;color:#2b2a26 !important}.art-host .container td{border:1px solid #e0d8c4 !important;color:#3a382f !important}.art-host .container .fixed-opening{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important;color:#55524a !important}.art-host .container .question-block{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box,.art-host .container .shuorenhua{padding:16px 20px !important}.art-host .container .insight-box p,.art-host .container .shuorenhua p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .insight-box p:last-child,.art-host .container .shuorenhua p:last-child{margin-bottom:0 !important}.art-host .container .insight-box .box-title,.art-host .container .shuorenhua .box-title,.art-host .container .actuary-practice .box-title,.art-host .container .chapter-mini .box-title,.art-host .container .alert-box .box-title,.art-host .container .action-item .box-title,.art-host .container .margin-calc .box-title,.art-host .container .action-tips .box-title{font-weight:700 !important;margin-bottom:6px !important;padding-bottom:6px !important;border-bottom:1px dashed rgba(187,138,31,.45) !important}.art-host .container .actuary-practice p,.art-host .container .chapter-mini p,.art-host .container .alert-box p,.art-host .container .action-item p,.art-host .container .margin-calc p,.art-host .container .action-tips p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .actuary-practice p:last-child,.art-host .container .chapter-mini p:last-child,.art-host .container .alert-box p:last-child,.art-host .container .action-item p:last-child,.art-host .container .margin-calc p:last-child,.art-host .container .action-tips p:last-child{margin-bottom:0 !important}.art-host .container .actuary-practice,.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .action-item,.art-host .container .margin-calc,.art-host .container .action-tips{padding:16px 20px !important}.art-host .container .actuary-practice{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important}.art-host .container .shuorenhua{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important}.art-host .container .core-conclusion{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important;padding:18px 22px !important}.art-host .container .core-conclusion p{margin:10px 0 !important;line-height:1.95 !important}.art-host .container .action-tips{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card h4{color:#b53d2e !important}.art-host .container .tool-badge{background:#2f6b5a !important}.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .italic-quote,.art-host .container .metric-badge,.art-host .container .action-item{line-height:1.95 !important;font-size:14.5px !important;color:#3a382f !important}.chap-banner{margin:0 0 24px;border:1px solid #e0d8c4;border-radius:14px;overflow:hidden}.chap-banner svg{display:block;width:100%;height:auto}</style>
+<div class="container"><figure class="chap-banner"><svg viewBox="0 0 680 190" role="img" aria-label="章节插画：经验分析"><rect width="680" height="190" fill="#fcf5e6"/><circle cx="598" cy="54" r="44" fill="#e6b45c" opacity="0.10"/><circle cx="598" cy="54" r="28" fill="#e6b45c" opacity="0.16"/><circle cx="598" cy="54" r="14" fill="#e6b45c" opacity="0.85"/><ellipse cx="340" cy="172" rx="305" ry="9" fill="#e3d5b4" opacity="0.5"/><circle cx="250" cy="95" r="46" fill="#fffdf6" stroke="#3d7a66" stroke-width="3"/><circle cx="250" cy="95" r="34" fill="none" stroke="#e3d5b4" stroke-width="2"/><path d="M250 95 L276 76" stroke="#bf5638" stroke-width="3.5" stroke-linecap="round"/><circle cx="250" cy="95" r="4" fill="#3a3428"/><path d="M296 95 h64" stroke="#3a3428" stroke-width="3"/><rect x="360" y="66" width="150" height="58" rx="8" fill="#fcf5e6" stroke="#e3d5b4" stroke-width="2.5"/><text x="435" y="90" font-size="12.5" fill="#3d7a66" text-anchor="middle" font-family="serif">假设 vs 实际</text><text x="435" y="110" font-size="12.5" fill="#3a3428" text-anchor="middle" font-family="serif">偏差就是数据</text></svg></figure>
+    <h1>精算思维 · 第5章：经验分析——用后视镜校准前挡风玻璃</h1>
+    <div class="subtitle">像精算师一样思考 · 动态修正与反馈力（上）</div>
+
+    <div class="fixed-opening">
+        ⚡ 不推销，只讲逻辑。花10分钟读完，比你自己瞎研究一个月都有用。
+    </div>
+
+    <div class="question-block">
+        <p>❓ 很多朋友问我：</p>
+        <p>“为什么保险公司敢年年调整费率？它们凭什么知道假设错了？”</p>
+        <p>“我定的年度计划总是半途而废，是不是我执行力太差？”</p>
+        <p style="margin-top: 12px;">📌 这些问题的答案，是精算师的同一样基本功：<strong>经验分析</strong>。偏差不是事故，是数据。</p>
+    </div>
+
+    <h2>一、专业概念：什么是经验分析？</h2>
+    <p>精算师定价时用的是<strong>假设</strong>：假设死亡率多少、发病率多少、退保率多少、投资收益率多少。但假设只是猜测，真实世界会用<strong>实际经验</strong>给出答案。</p>
+    <p><strong>经验分析（Experience Analysis）</strong>，就是每年把实际发生的数据和定价假设放在一起对比：实际死亡率比假设高还是低？退保是不是比预想的多？投资收益有没有达标？每一项偏差，都会被拆成“哪个假设错了、错了多少、为什么错”。</p>
+    <div class="insight-box">
+        <strong>📌 记住这个等式：</strong> 偏差 = 信息。假设 vs 实际的差距不是“事故”，而是下一轮定价最值钱的输入。
+    </div>
+
+    <h2>二、精算实践：保险公司的年度经验分析会</h2>
+    <p>每年年底，精算部会牵头开<strong>经验分析会</strong>：把过去一年的赔付、退保、费用、投资数据逐项与假设比对，产出一张“偏差分析表”——每一行写清楚：假设值、实际值、偏差、原因、是否调整。</p>
+    <table>
+        <thead><tr><th>假设项目</th><th>定价假设</th><th>实际经验</th><th>结论</th></tr></thead>
+        <tbody>
+            <tr><td>死亡率</td><td>按生命表</td><td>略优</td><td>维持</td></tr>
+            <tr><td>退保率</td><td>3%</td><td>5%</td><td>上调假设、检视销售</td></tr>
+            <tr><td>费用率</td><td>预算口径</td><td>超支</td><td>压降或调价</td></tr>
+        </tbody>
+    </table>
+    <p>会后有两件事必做：一是<strong>修正未来假设</strong>，让新产品的定价更贴近现实；二是<strong>回溯存量业务</strong>，看准备金和利润要不要重估。经验分析做完，精算师的“地图”就完成了一次校准。</p>
+
+    <h2>三、生活应用：你的“假设—实际”复盘</h2>
+    <p>我们每个人也在不停地做假设：“每天背 30 个单词，三个月能过六级”“这个项目三周能做完”“每月存 2000 块，年底有 2 万”。可惜大多数人从不核对假设与实际的差距，只是笼统地归结为“我没做好”。</p>
+    <p>经验分析的用法很简单：定期把<strong>计划值</strong>和<strong>实际值</strong>摆在一起，逐项找偏差根源。是假设太乐观？还是执行走了样？不同的病因，开出完全不同的药方。</p>
+
+    <h2>四、生活类比：开车用后视镜</h2>
+    <p>开车时你不会只盯着前挡风玻璃——每隔几秒就要瞄一眼后视镜。后视镜不会告诉你未来有什么，但它会告诉你：<strong>你的车是不是在偏离车道</strong>。</p>
+    <p>经验分析就是人生的后视镜。假设是前挡风玻璃里的路线，实际经验是后视镜里的车道线。不看后视镜的人，会在不知不觉中偏得越来越远，直到某天猛打方向盘。</p>
+
+    <h2>五、精算师视角：偏差不是失败，是数据</h2>
+    <p>最怕的不是有偏差，而是<strong>没有偏差记录</strong>。没有偏差，要么是你没有假设，要么是你没有核对——两种情况都意味着：你对世界的认知没有更新。</p>
+    <p>精算师从不因为“实际比假设差”而沮丧，因为一次清晰的偏差，胜过十次模糊的自我安慰。经验分析的本质，是把“感觉”变成“证据”，把“复盘”变成“校准”。</p>
+
+    <h2>六、给你的行动建议</h2>
+    <div class="actuary-practice">
+        <p>✅ <strong>写三环日记</strong>：每天三行——</p>
+        <p>第一行：今天的假设（我预计完成什么、预计花多长时间）；</p>
+        <p>第二行：实际结果；</p>
+        <p>第三行：偏差原因（假设错了？执行错了？外部干扰？）。</p>
+        <p>连续写 7 天，你会惊讶于自己的假设有多不准——也会惊讶于自己进步有多快。</p>
+        <p>✅ 每月月底花 30 分钟，把本月计划与实际逐项对比一次，只回答一个问题：<strong>下个月，哪个假设要改？</strong></p>
+    </div>
+    <div class="shuorenhua" style="margin-top: 16px;">
+        💡 <strong>延伸思考：</strong> 经验分析的本质是“承认假设会错，并建立纠错机制”。假设错了不丢人，丢人的是拿着一张过时的地图继续走。校准假设的人，走得不快，但每一步都在修正方向——复利不只属于钱，也属于认知。
+    </div>
+    <hr>
+    <p style="text-align: center; font-size: 0.75rem; color: #869ab3;">精算思维 · 不止于保险 | 应对人生不确定性的底层逻辑</p>
+</div>
+
+</div>
+<div class="pager"><a href="05-第一部分总结.html"><small>← 上一篇</small>第一部分总结 · 跨期折现力</a><a class="next" href="07-滚动预测.html"><small>下一篇 →</small>第6章 · 滚动预测</a></div>
+<footer class="colophon">精算思维 · 西红精算 · 不推销，只讲逻辑<br>本文只讲思维与方法，不构成任何投资或投保建议。</footer>
+</main>
+<script src="js/kb.js"></script>
+</body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精算思维 · 第15章：翻译三栏表</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-id="17">
+<button class="navbtn" type="button">☰ 目录</button>
+<aside class="side">
+  <div class="brand"><b>精算思维</b><span>不止于保险——像精算师一样思考，过好这一生</span></div>
+  <nav>
+<a href="index.html">进入知识库 · 全书目录</a>
+<div class="grp">开卷</div>
+<a href="00-序言.html">序言 · 精算思维为什么是必修课</a>
+<div class="grp">第一部分 · 跨期折现力</div>
+<a href="01-折现.html">第1章 · 折现</a>
+<a href="02-净现值与内含价值.html">第2章 · 净现值与内含价值</a>
+<a href="03-内含价值.html">第3章 · 内含价值</a>
+<a href="04-长期总账.html">第4章 · 长期总账</a>
+<a href="05-第一部分总结.html">第一部分总结 · 跨期折现力</a>
+<div class="grp">第二部分 · 动态修正与反馈力</div>
+<a href="06-经验分析.html">第5章 · 经验分析</a>
+<a href="07-滚动预测.html">第6章 · 滚动预测</a>
+<a href="08-随机模拟与反馈闭环.html">第7章 · 随机模拟与反馈闭环</a>
+<a href="09-第二部分总结.html">第二部分总结 · 动态修正与反馈力</a>
+<div class="grp">第三部分 · 安全边际与兜底力</div>
+<a href="10-风险边际.html">第8章 · 风险边际</a>
+<a href="11-偿付能力资本.html">第9章 · 偿付能力资本</a>
+<a href="12-审慎原则与关键风险.html">第10章 · 审慎原则与关键风险</a>
+<a href="13-黑天鹅准备.html">第11章 · 黑天鹅准备</a>
+<div class="grp">第四部分 · 风险优先级力</div>
+<a href="14-四象限矩阵.html">第12章 · 四象限矩阵</a>
+<a href="15-再保险.html">第13章 · 再保险</a>
+<a href="16-资产负债管理.html">第14章 · 资产负债管理</a>
+<div class="grp">第五部分 · 沟通翻译力</div>
+<a href="17-翻译三栏表.html" class="on">第15章 · 翻译三栏表</a>
+<a href="18-受众分层.html">第16章 · 受众分层翻译</a>
+<a href="19-反人性沟通.html">第17章 · 反人性沟通</a>
+<div class="grp">第六部分 · 人生全局平衡力</div>
+<a href="20-人生资产负债表.html">第18章 · 人生资产负债表</a>
+<a href="21-多目标优化.html">第19章 · 多目标优化</a>
+<a href="22-可持续平衡.html">第20章 · 可持续平衡</a>
+<div class="grp">收官</div>
+<a href="23-结语.html">结语 · 30 天打卡表</a>
+<a href="24-全书总结.html">全书总结 · 六大能力与术语速查</a>
+<div class="grp">关于</div>
+<a href="resources.html">延伸资源 · 官方外链与姊妹站</a>
+<a href="xihong.html">关于 · 西红精算</a>
+  </nav>
+  <div class="prog-mini">已读 <b id="kb-mini">0 / 25</b> 页<br>点每页右下角按钮记录进度</div>
+</aside>
+<main class="main">
+<div class="art-host">
+<style>
+.art-host *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+.art-host body{
+            background-color: #f7f9fc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.68;
+            color: #1f2d3d;
+            padding: 20px 0 50px;
+        }
+.art-host .container{
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 28px 22px 48px;
+        }
+@media (max-width: 560px){.art-host .container{
+                padding: 22px 18px 40px;
+                margin: 0 12px;
+            }}
+.art-host h1{
+            font-size: 1.9rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0.2rem 0 0.5rem 0;
+            color: #0b2b3b;
+            letter-spacing: -0.3px;
+            border-left: 5px solid #2c7da0;
+            padding-left: 18px;
+        }
+.art-host .subtitle{
+            font-size: 1rem;
+            color: #2c7da0;
+            font-weight: 500;
+            margin: 10px 0 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+.art-host .fixed-opening{
+            background-color: #f0f4fa;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 24px 0 20px;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+            color: #1e4660;
+        }
+.art-host .question-block{
+            background: #fef9e8;
+            border-left: 4px solid #f5a623;
+            padding: 14px 18px;
+            margin: 24px 0;
+            border-radius: 16px;
+        }
+.art-host .question-block p{
+            margin: 6px 0;
+            font-weight: 500;
+        }
+.art-host h2{
+            font-size: 1.65rem;
+            font-weight: 650;
+            margin: 1.6em 0 0.6em;
+            color: #1f4e6e;
+            border-left: 4px solid #2c7da0;
+            padding-left: 14px;
+        }
+.art-host h3{
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.4em 0 0.4em;
+            color: #285e7a;
+        }
+.art-host .insight-box{
+            background-color: #fef5e8;
+            border-left: 4px solid #f39c12;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+.art-host .actuary-practice{
+            background-color: #eef4fc;
+            border-left: 4px solid #2c7da0;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+        }
+.art-host .shuorenhua{
+            background-color: #f0f4fa;
+            padding: 14px 20px;
+            border-radius: 20px;
+            margin: 1.2em 0;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+        }
+.art-host .action-tips{
+            background-color: #eef2f7;
+            border-radius: 22px;
+            padding: 20px 24px;
+            margin: 1.8em 0;
+            border: 1px solid #dce5ec;
+        }
+.art-host .alert-box{
+            background-color: #fee9e6;
+            border-left: 4px solid #dc2626;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host .core-conclusion{
+            background: #e6f7ec;
+            border-left: 4px solid #2e7d32;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.9rem;
+        }
+.art-host th,.art-host td{
+            border: 1px solid #d4dce6;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+.art-host th{
+            background-color: #eef2f8;
+            font-weight: 600;
+        }
+.art-host .speed-card{
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 10px 18px 18px;
+            margin: 28px 0 20px;
+            border: 1px solid #e2edf2;
+        }
+.art-host .speed-card h4{
+            font-size: 1.3rem;
+            margin: 0.6rem 0 1rem;
+            color: #0e4b6e;
+        }
+.art-host footer{
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid #e2edf0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4f6f8f;
+        }
+.art-host .next-chapter{
+            background: #e1edf5;
+            padding: 16px 22px;
+            border-radius: 28px;
+            margin: 32px 0 16px;
+            font-weight: 500;
+        }
+.art-host hr{
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+.art-host .action-item{
+            margin: 12px 0;
+        }
+.art-host .trans-table{
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #dce5ec;
+            padding: 14px;
+            margin: 16px 0;
+        }
+</style>
+<style>.art-host .container{max-width:800px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:none;padding:30px 26px 40px}.art-host .container h1{font-size:22px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:14px !important;font-family:var(--serif);line-height:1.55 !important;letter-spacing:1px}.art-host .container .subtitle{color:#2f6b5a !important;font-weight:500;font-size:1rem !important;margin:10px 0 20px 0 !important;border-bottom:1px dashed #cfc5ab !important;padding-bottom:12px !important;line-height:1.7 !important}.art-host .container h2{font-size:20px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:12px !important;margin:34px 0 14px !important;line-height:1.55 !important;font-family:var(--serif);letter-spacing:1px}.art-host .container h3{font-size:16.5px !important;color:#2f6b5a !important;margin:24px 0 12px !important;line-height:1.6 !important;font-family:var(--serif)}.art-host .container h4{font-size:15px !important;color:#2b2a26 !important;margin:18px 0 10px !important;line-height:1.6 !important}.art-host .container p{line-height:2.05 !important;margin:0 0 14px !important;font-size:15.5px !important;color:#3a382f !important;font-family:inherit}.art-host .container li{line-height:2 !important;font-size:15px !important;color:#3a382f !important}.art-host .container strong{color:#2b2a26 !important}.art-host .container a{color:#2f6b5a !important}.art-host .container hr{border:none;border-top:1px dashed #cfc5ab;margin:26px 0 !important}.art-host .container table{border-collapse:collapse !important}.art-host .container th{background:#f1ead8 !important;border:1px solid #e0d8c4 !important;color:#2b2a26 !important}.art-host .container td{border:1px solid #e0d8c4 !important;color:#3a382f !important}.art-host .container .fixed-opening{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important;color:#55524a !important}.art-host .container .question-block{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box,.art-host .container .shuorenhua{padding:16px 20px !important}.art-host .container .insight-box p,.art-host .container .shuorenhua p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .insight-box p:last-child,.art-host .container .shuorenhua p:last-child{margin-bottom:0 !important}.art-host .container .insight-box .box-title,.art-host .container .shuorenhua .box-title,.art-host .container .actuary-practice .box-title,.art-host .container .chapter-mini .box-title,.art-host .container .alert-box .box-title,.art-host .container .action-item .box-title,.art-host .container .margin-calc .box-title,.art-host .container .action-tips .box-title{font-weight:700 !important;margin-bottom:6px !important;padding-bottom:6px !important;border-bottom:1px dashed rgba(187,138,31,.45) !important}.art-host .container .actuary-practice p,.art-host .container .chapter-mini p,.art-host .container .alert-box p,.art-host .container .action-item p,.art-host .container .margin-calc p,.art-host .container .action-tips p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .actuary-practice p:last-child,.art-host .container .chapter-mini p:last-child,.art-host .container .alert-box p:last-child,.art-host .container .action-item p:last-child,.art-host .container .margin-calc p:last-child,.art-host .container .action-tips p:last-child{margin-bottom:0 !important}.art-host .container .actuary-practice,.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .action-item,.art-host .container .margin-calc,.art-host .container .action-tips{padding:16px 20px !important}.art-host .container .actuary-practice{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important}.art-host .container .shuorenhua{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important}.art-host .container .core-conclusion{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important;padding:18px 22px !important}.art-host .container .core-conclusion p{margin:10px 0 !important;line-height:1.95 !important}.art-host .container .action-tips{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card h4{color:#b53d2e !important}.art-host .container .tool-badge{background:#2f6b5a !important}.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .italic-quote,.art-host .container .metric-badge,.art-host .container .action-item{line-height:1.95 !important;font-size:14.5px !important;color:#3a382f !important}.chap-banner{margin:0 0 24px;border:1px solid #e0d8c4;border-radius:14px;overflow:hidden}.chap-banner svg{display:block;width:100%;height:auto}</style>
+<div class="container"><figure class="chap-banner"><svg viewBox="0 0 680 190" role="img" aria-label="章节插画：翻译三栏表"><rect width="680" height="190" fill="#fcf5e6"/><circle cx="598" cy="54" r="44" fill="#e6b45c" opacity="0.10"/><circle cx="598" cy="54" r="28" fill="#e6b45c" opacity="0.16"/><circle cx="598" cy="54" r="14" fill="#e6b45c" opacity="0.85"/><ellipse cx="340" cy="172" rx="305" ry="9" fill="#e3d5b4" opacity="0.5"/><rect x="140" y="62" width="130" height="72" rx="9" fill="#fffdf6" stroke="#bf5638" stroke-width="2.5"/><text x="205" y="94" font-size="13" fill="#3a3428" text-anchor="middle" font-family="serif">术语</text><line x1="158" y1="106" x2="252" y2="106" stroke="#e3d5b4" stroke-width="2"/><rect x="275" y="62" width="130" height="72" rx="9" fill="#fffdf6" stroke="#3d7a66" stroke-width="2.5"/><text x="340" y="94" font-size="13" fill="#3a3428" text-anchor="middle" font-family="serif">白话</text><line x1="293" y1="106" x2="387" y2="106" stroke="#e3d5b4" stroke-width="2"/><rect x="410" y="62" width="130" height="72" rx="9" fill="#fffdf6" stroke="#c98f2b" stroke-width="2.5"/><text x="475" y="94" font-size="13" fill="#3a3428" text-anchor="middle" font-family="serif">行动</text><line x1="428" y1="106" x2="522" y2="106" stroke="#e3d5b4" stroke-width="2"/><path d="M270 98 h5 M405 98 h5" stroke="#3a3428" stroke-width="3"/><text x="340" y="52" font-size="13.5" fill="#3d7a66" text-anchor="middle" font-family="serif">专业的话，说到对方心坎里</text></svg></figure>
+    <h1>精算思维 · 第15章：翻译三栏表——从精算术语到业务语言</h1>
+    <div class="subtitle">像精算师一样思考 · 沟通翻译力（上）</div>
+
+    <div class="fixed-opening">
+        ⚡ 不推销，只讲逻辑。花10分钟读完，比你自己瞎研究一个月都有用。
+    </div>
+
+    <div class="question-block">
+        <p>❓ 很多朋友问我：</p>
+        <p>“为什么精算师的报告明明很专业，老板却一脸茫然？”</p>
+        <p>“我跟家人解释买保险的重要性，他们总说‘没必要’，怎么办？”</p>
+        <p>“精算思维里有没有专门讲‘怎么说话’的能力？”</p>
+        <p style="margin-top: 12px;">📌 这些问题，指向精算思维的第五项核心能力——<strong>沟通翻译力</strong>。精算师最大的本事不是算得准，而是让非精算师听懂并做出正确的决策。这套能力，对你同样重要。</p>
+    </div>
+
+    
+    <h2>一、专业概念：为什么精算师需要翻译力？</h2>
+    <h3>1. 精算师的通病：自己懂，别人听不懂</h3>
+    <p>精算师擅长建模、假设、概率、折现，但往往陷入“知识诅咒”——一旦你掌握了某个专业概念，就很难想象不知道它的人是什么感受。于是精算报告充斥着：”“折现率下调50bp导致NBV下降8%”——老板听完，内心OS：“所以呢？”</p>
+    <div class="insight-box">
+        <p class="box-title"><strong>📌 精算沟通的三大障碍：</strong></p>
+        <p>1️⃣ 术语壁垒：死亡率、退保率、风险边际——普通人一辈子没听过</p>
+        <p>2️⃣ 概率思维：人们很难理解“70%概率”和“30%概率”的区别</p>
+        <p>3️⃣ 时间跨度：30年后的利益，今天看来太模糊</p>
+    </div>
+    <h3>2. 翻译三栏表：从技术到行动的桥梁</h3>
+    <p>精算师在实践中总结出一套简单有效的沟通工具：<strong>翻译三栏表</strong>。</p>
+    <p>三栏分别是：</p>
+    <ul>
+        <li><strong>技术结论</strong>：精算师计算出的专业结果</li>
+        <li><strong>对方在乎什么</strong>：利益点、痛点、关心的问题</li>
+        <li><strong>怎么讲</strong>：用对方的语言翻译技术结论</li>
+    </ul>
+    <div class="shuorenhua">
+        <strong>💡 核心心法：</strong> 不要告诉对方“你做了什么”，而要告诉对方“这对你有什么好处”。
+    </div>
+    <h3>3. 精算报告中的受众分层</h3>
+    <p>一份精算报告可能需要面对不同读者：</p>
+    <ul>
+        <li><strong>CEO</strong>：关心利润、风险、战略方向</li>
+        <li><strong>CFO</strong>：关心现金流、资本充足率、盈利预测</li>
+        <li><strong>销售总监</strong>：关心产品卖点、佣金、竞争力</li>
+        <li><strong>风控官</strong>：关心尾端风险、压力测试结果</li>
+        <li><strong>监管机构</strong>：关心合规、偿付能力、消费者保护</li>
+    </ul>
+    <p>一份报告要写多个版本，或者至少用不同方式呈现同一个结论。</p>
+
+    
+    <h2>二、精算实践：翻译三栏表在保险公司怎么用</h2>
+    <div class="actuary-practice">
+        <p class="box-title"><strong>📋 一个精算师的真实工作场景</strong></p>
+        <p>有一次，我完成了新的重疾险定价，通过模型得到：新产品的净现值为正，新业务价值率15%，资本回报周期4年。</p>
+        <p>如果我只把这一串数字发给管理层，大概率被驳回。于是我用了翻译三栏表：</p>
+        <p><table style="margin:8px 0;">
+            <thead><tr><th>技术结论</th><th>对方在乎什么</th><th>怎么讲</th></tr></thead>
+            <tbody>
+                <tr><td>NPV &gt; 0, NBV margin 15%</td><td>利润、股东回报</td><td>“每卖100元保费，能给公司创造15元利润现值，4年回本。”</td></tr>
+                <tr><td>折现率假设敏感度</td><td>风险可控</td><td>“即使投资收益率下降1%，仍然有8%的利润率，安全垫充足。”</td></tr>
+                <tr><td>疾病发生率假设</td><td>保费竞争力</td><td>“我们的定价比市场主流产品低5%，同时预留了风险边际，不会亏。”</td></tr>
+            </tbody>
+        </table>
+        最终产品顺利通过。销售团队也因为听懂了自己能赚多少佣金，积极推广。</p>
+        <p><span style="background-color:#fff2cf; padding:2px 6px; border-radius:12px;">📌 精算师视角：</span> 翻译不是“掩盖复杂性”，而是将复杂性转化为行动指令。好的精算师，能让不懂精算的人做出正确决策。</p>
+    </div>
+
+    <div class="insight-box">
+        <p class="box-title"><strong>📈 延伸精算概念：精算报告的最佳实践</strong></p>
+        <p>监管要求的精算报告（如偿付能力报告）往往长达几百页，但管理层摘要必须控制在3页以内。精算师会在摘要中只放关键结论、主要变动原因、建议行动。详细的假设和模型放在附录。这就是翻译力在文档中的体现。</p>
+    </div>
+
+    
+    <h2>三、生活应用：用翻译力推动身边人行动</h2>
+    <h3>1. 场景一：说服伴侣买保险</h3>
+    <p><strong>技术结论</strong>：家庭支柱身故后，家庭未来20年收入缺口200万。<br>
+    <strong>对方在乎什么</strong>：孩子能否继续上学、房贷能否还清、生活品质是否下降。<br>
+    <strong>怎么讲</strong>：“你不是在花钱，是用每月200块给孩子换一个‘不管发生什么，你都能读完大学’的承诺。”</p>
+
+    <h3>2. 场景二：劝父母体检</h3>
+    <p><strong>技术结论</strong>：50岁以上人群高血压患病率40%，早期发现可降低80%的脑卒中风险。<br>
+    <strong>对方在乎什么</strong>：怕查出大病、怕花钱、怕麻烦。<br>
+    <strong>怎么讲</strong>：“这个套餐是免费的（或用医保），我陪你去，就当是给我买个安心。查出来没事最好，有点小问题早处理，比以后住院强多了。”</p>
+
+    <h3>3. 场景三：向上级申请资源</h3>
+    <p><strong>技术结论</strong>：投入20万买软件，预计年节省人力成本30万，ROI 150%。<br>
+    <strong>对方在乎什么</strong>：预算、业绩、团队效率。<br>
+    <strong>怎么讲</strong>：“这个软件可以让团队每周省出10小时，一年相当于多干一个月的活。而且明年预算只占部门总预算的2%，季度内就能回本。”</p>
+
+    <div class="core-conclusion">
+        <p><strong>🎯 翻译三栏表万能模板：</strong></p>
+        <p>| 你想表达的专业内容 | 对方最关心的1-2个问题 | 用对方的语言重新组织 |
+        每次沟通前，花2分钟填这张表，你的说服力会提升10倍。</p>
+    </div>
+
+    
+    <h2>四、生活类比：导游与学者的区别</h2>
+    <p>学者研究一座古城的历史、建筑结构、地质变迁，写的是学术论文。导游同样了解这些，但他不会对游客讲“这座城墙的夯土含沙量是23.7%”，而是讲“当年敌人攻城时，守军如何用这座城墙挡住百万大军”。</p>
+    <p>精算师如果只会写学术论文，就是自嗨。学会当导游，才能让别人跟着你走。</p>
+    <p><strong>翻译力就是让你从学者变成导游。</strong></p>
+
+    
+    <h2>五、精算师视角：翻译力是精算商业价值的放大器</h2>
+    <p>两个精算师技术能力相当，一个能把复杂结论翻译成业务行动，另一个只会扔报表。前者几年后可能成为CFO或CEO，后者永远是后台技术人员。</p>
+    <p>翻译力不是讨好他人，而是尊重对方的时间与认知边界。你不是要“简化”事实，而是要把事实放到对方的“接收频率”上发射出去。</p>
+    <div class="shuorenhua">
+        <strong>💡 精算师给你的建议：</strong> 每次写完报告或准备发言时，问自己一句：“如果我完全不懂精算，能听懂吗？”如果答案是“需要额外解释”，那就重写。
+    </div>
+
+    
+    <h2>六、给你的行动建议</h2>
+    <div class="action-tips">
+        
+        <p><strong>✅ 行动清单：</strong></p>
+        <p>1️⃣ <strong>本周选择一个需要说服他人的场景</strong>（工作汇报、家庭沟通、朋友讨论），提前画出翻译三栏表，写下来。</p>
+        <p>2️⃣ <strong>把保险或理财的专业术语翻译成“人话”</strong></p>
+        <p>例如：“现金价值” → “如果中途退保，你能拿回多少钱”；“免赔额” → “自己要掏的部分，超过这个数保险公司才赔”。整理5个以上日常用到的术语，存在手机备忘录里，随时调用。</p>
+        <p>3️⃣ <strong>练习“电梯演讲”</strong></p>
+        <p>假设你在电梯里遇到老板或重要客户，只有30秒。你能不能用三句话讲清楚你想表达的核心价值？写下来，反复练习。</p>
+    
+    </div>
+    <div class="shuorenhua">
+        <p class="box-title"><strong>✅ 本周练习：</strong></p>
+        <p>找出你最近写的一封工作邮件或汇报文档，挑选其中一段最“技术流”的文字。用翻译三栏表重写一遍。对比修改前后的版本，发给一个不懂这个领域的同事看，问问他哪个版本更好懂。</p>
+    </div>
+
+    
+    
+
+    
+    
+
+    
+    <div class="speed-card">
+        <h4>📌 本章核心概念速记卡</h4>
+        <table>
+            <thead><tr><th>中文</th><th>英文</th><th>一句话大白话</th></tr></thead>
+            <tbody>
+                <tr><td>翻译三栏表</td><td>Translation 3-Column Table</td><td>技术结论 → 对方利益 → 怎么讲</td></tr>
+                <tr><td>知识诅咒</td><td>Curse of Knowledge</td><td>_:一旦你懂了，就忘了不懂的感受</td></tr>
+                <tr><td>受众分层</td><td>Audience Segmentation</td><td>对不同的人讲不同的话</td></tr>
+                <tr><td>电梯演讲</td><td>Elevator Pitch</td><td>_:30秒内说清核心价值</td></tr>
+                <tr><td>行动指令</td><td>Call to Action</td><td>让对方听完知道该做什么</td></tr>
+                <tr><td>换位表达</td><td>Perspective Taking</td><td>站在对方角度说人话</td></tr>
+            </tbody>
+        </table>
+        <div class="shuorenhua" style="margin-top: 16px;">
+            💡 <strong>延伸思考：</strong> 翻译力不仅对外有用，对你自己也很有用。当你把复杂问题简化到能讲给一个10岁孩子听时，你对问题的理解也真正通透了。“教是最好的学”——翻译力是逼迫自己深化认知的最佳工具。
+        </div>
+    </div>
+    </div>
+</div>
+<div class="pager"><a href="16-资产负债管理.html"><small>← 上一篇</small>第14章 · 资产负债管理</a><a class="next" href="18-受众分层.html"><small>下一篇 →</small>第16章 · 受众分层翻译</a></div>
+<footer class="colophon">精算思维 · 西红精算 · 不推销，只讲逻辑<br>本文只讲思维与方法，不构成任何投资或投保建议。</footer>
+</main>
+<script src="js/kb.js"></script>
+</body>
+</html>

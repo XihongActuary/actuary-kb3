@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精算思维 · 第2章：净现值与内含价值</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-id="02">
+<button class="navbtn" type="button">☰ 目录</button>
+<aside class="side">
+  <div class="brand"><b>精算思维</b><span>不止于保险——像精算师一样思考，过好这一生</span></div>
+  <nav>
+<a href="index.html">进入知识库 · 全书目录</a>
+<div class="grp">开卷</div>
+<a href="00-序言.html">序言 · 精算思维为什么是必修课</a>
+<div class="grp">第一部分 · 跨期折现力</div>
+<a href="01-折现.html">第1章 · 折现</a>
+<a href="02-净现值与内含价值.html" class="on">第2章 · 净现值与内含价值</a>
+<a href="03-内含价值.html">第3章 · 内含价值</a>
+<a href="04-长期总账.html">第4章 · 长期总账</a>
+<a href="05-第一部分总结.html">第一部分总结 · 跨期折现力</a>
+<div class="grp">第二部分 · 动态修正与反馈力</div>
+<a href="06-经验分析.html">第5章 · 经验分析</a>
+<a href="07-滚动预测.html">第6章 · 滚动预测</a>
+<a href="08-随机模拟与反馈闭环.html">第7章 · 随机模拟与反馈闭环</a>
+<a href="09-第二部分总结.html">第二部分总结 · 动态修正与反馈力</a>
+<div class="grp">第三部分 · 安全边际与兜底力</div>
+<a href="10-风险边际.html">第8章 · 风险边际</a>
+<a href="11-偿付能力资本.html">第9章 · 偿付能力资本</a>
+<a href="12-审慎原则与关键风险.html">第10章 · 审慎原则与关键风险</a>
+<a href="13-黑天鹅准备.html">第11章 · 黑天鹅准备</a>
+<div class="grp">第四部分 · 风险优先级力</div>
+<a href="14-四象限矩阵.html">第12章 · 四象限矩阵</a>
+<a href="15-再保险.html">第13章 · 再保险</a>
+<a href="16-资产负债管理.html">第14章 · 资产负债管理</a>
+<div class="grp">第五部分 · 沟通翻译力</div>
+<a href="17-翻译三栏表.html">第15章 · 翻译三栏表</a>
+<a href="18-受众分层.html">第16章 · 受众分层翻译</a>
+<a href="19-反人性沟通.html">第17章 · 反人性沟通</a>
+<div class="grp">第六部分 · 人生全局平衡力</div>
+<a href="20-人生资产负债表.html">第18章 · 人生资产负债表</a>
+<a href="21-多目标优化.html">第19章 · 多目标优化</a>
+<a href="22-可持续平衡.html">第20章 · 可持续平衡</a>
+<div class="grp">收官</div>
+<a href="23-结语.html">结语 · 30 天打卡表</a>
+<a href="24-全书总结.html">全书总结 · 六大能力与术语速查</a>
+<div class="grp">关于</div>
+<a href="resources.html">延伸资源 · 官方外链与姊妹站</a>
+<a href="xihong.html">关于 · 西红精算</a>
+  </nav>
+  <div class="prog-mini">已读 <b id="kb-mini">0 / 25</b> 页<br>点每页右下角按钮记录进度</div>
+</aside>
+<main class="main">
+<div class="art-host">
+<style>
+.art-host *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+.art-host body{
+            background-color: #f7f9fc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.68;
+            color: #1f2d3d;
+            padding: 20px 0 50px;
+        }
+.art-host .container{
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 28px 22px 48px;
+        }
+@media (max-width: 560px){.art-host .container{
+                padding: 22px 18px 40px;
+                margin: 0 12px;
+            }}
+.art-host h1{
+            font-size: 1.9rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0.2rem 0 0.5rem 0;
+            color: #0b2b3b;
+            letter-spacing: -0.3px;
+            border-left: 5px solid #2c7da0;
+            padding-left: 18px;
+        }
+.art-host .subtitle{
+            font-size: 1rem;
+            color: #2c7da0;
+            font-weight: 500;
+            margin: 10px 0 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+.art-host .fixed-opening{
+            background-color: #f0f4fa;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 24px 0 20px;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+            color: #1e4660;
+        }
+.art-host .question-block{
+            background: #fef9e8;
+            border-left: 4px solid #f5a623;
+            padding: 14px 18px;
+            margin: 24px 0;
+            border-radius: 16px;
+        }
+.art-host .question-block p{
+            margin: 6px 0;
+            font-weight: 500;
+        }
+.art-host h2{
+            font-size: 1.65rem;
+            font-weight: 650;
+            margin: 1.6em 0 0.6em;
+            color: #1f4e6e;
+            border-left: 4px solid #2c7da0;
+            padding-left: 14px;
+        }
+.art-host h3{
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.4em 0 0.4em;
+            color: #285e7a;
+        }
+.art-host .insight-box{
+            background-color: #fef5e8;
+            border-left: 4px solid #f39c12;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+.art-host .actuary-practice{
+            background-color: #eef4fc;
+            border-left: 4px solid #2c7da0;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+        }
+.art-host .shuorenhua{
+            background-color: #f0f4fa;
+            padding: 14px 20px;
+            border-radius: 20px;
+            margin: 1.2em 0;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+        }
+.art-host .action-tips{
+            background-color: #eef2f7;
+            border-radius: 22px;
+            padding: 20px 24px;
+            margin: 1.8em 0;
+            border: 1px solid #dce5ec;
+        }
+.art-host .alert-box{
+            background-color: #fee9e6;
+            border-left: 4px solid #dc2626;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host .core-conclusion{
+            background: #e6f7ec;
+            border-left: 4px solid #2e7d32;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.9rem;
+        }
+.art-host th,.art-host td{
+            border: 1px solid #d4dce6;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+.art-host th{
+            background-color: #eef2f8;
+            font-weight: 600;
+        }
+.art-host .speed-card{
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 10px 18px 18px;
+            margin: 28px 0 20px;
+            border: 1px solid #e2edf2;
+        }
+.art-host .speed-card h4{
+            font-size: 1.3rem;
+            margin: 0.6rem 0 1rem;
+            color: #0e4b6e;
+        }
+.art-host footer{
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid #e2edf0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4f6f8f;
+        }
+.art-host .next-chapter{
+            background: #e1edf5;
+            padding: 16px 22px;
+            border-radius: 28px;
+            margin: 32px 0 16px;
+            font-weight: 500;
+        }
+.art-host hr{
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+.art-host .action-item{
+            margin: 12px 0;
+        }
+.art-host .italic-quote{
+            font-style: italic;
+            color: #4a627a;
+        }
+</style>
+<style>.art-host .container{max-width:800px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:none;padding:30px 26px 40px}.art-host .container h1{font-size:22px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:14px !important;font-family:var(--serif);line-height:1.55 !important;letter-spacing:1px}.art-host .container .subtitle{color:#2f6b5a !important;font-weight:500;font-size:1rem !important;margin:10px 0 20px 0 !important;border-bottom:1px dashed #cfc5ab !important;padding-bottom:12px !important;line-height:1.7 !important}.art-host .container h2{font-size:20px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:12px !important;margin:34px 0 14px !important;line-height:1.55 !important;font-family:var(--serif);letter-spacing:1px}.art-host .container h3{font-size:16.5px !important;color:#2f6b5a !important;margin:24px 0 12px !important;line-height:1.6 !important;font-family:var(--serif)}.art-host .container h4{font-size:15px !important;color:#2b2a26 !important;margin:18px 0 10px !important;line-height:1.6 !important}.art-host .container p{line-height:2.05 !important;margin:0 0 14px !important;font-size:15.5px !important;color:#3a382f !important;font-family:inherit}.art-host .container li{line-height:2 !important;font-size:15px !important;color:#3a382f !important}.art-host .container strong{color:#2b2a26 !important}.art-host .container a{color:#2f6b5a !important}.art-host .container hr{border:none;border-top:1px dashed #cfc5ab;margin:26px 0 !important}.art-host .container table{border-collapse:collapse !important}.art-host .container th{background:#f1ead8 !important;border:1px solid #e0d8c4 !important;color:#2b2a26 !important}.art-host .container td{border:1px solid #e0d8c4 !important;color:#3a382f !important}.art-host .container .fixed-opening{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important;color:#55524a !important}.art-host .container .question-block{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box,.art-host .container .shuorenhua{padding:16px 20px !important}.art-host .container .insight-box p,.art-host .container .shuorenhua p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .insight-box p:last-child,.art-host .container .shuorenhua p:last-child{margin-bottom:0 !important}.art-host .container .insight-box .box-title,.art-host .container .shuorenhua .box-title,.art-host .container .actuary-practice .box-title,.art-host .container .chapter-mini .box-title,.art-host .container .alert-box .box-title,.art-host .container .action-item .box-title,.art-host .container .margin-calc .box-title,.art-host .container .action-tips .box-title{font-weight:700 !important;margin-bottom:6px !important;padding-bottom:6px !important;border-bottom:1px dashed rgba(187,138,31,.45) !important}.art-host .container .actuary-practice p,.art-host .container .chapter-mini p,.art-host .container .alert-box p,.art-host .container .action-item p,.art-host .container .margin-calc p,.art-host .container .action-tips p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .actuary-practice p:last-child,.art-host .container .chapter-mini p:last-child,.art-host .container .alert-box p:last-child,.art-host .container .action-item p:last-child,.art-host .container .margin-calc p:last-child,.art-host .container .action-tips p:last-child{margin-bottom:0 !important}.art-host .container .actuary-practice,.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .action-item,.art-host .container .margin-calc,.art-host .container .action-tips{padding:16px 20px !important}.art-host .container .actuary-practice{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important}.art-host .container .shuorenhua{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important}.art-host .container .core-conclusion{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important;padding:18px 22px !important}.art-host .container .core-conclusion p{margin:10px 0 !important;line-height:1.95 !important}.art-host .container .action-tips{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card h4{color:#b53d2e !important}.art-host .container .tool-badge{background:#2f6b5a !important}.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .italic-quote,.art-host .container .metric-badge,.art-host .container .action-item{line-height:1.95 !important;font-size:14.5px !important;color:#3a382f !important}.chap-banner{margin:0 0 24px;border:1px solid #e0d8c4;border-radius:14px;overflow:hidden}.chap-banner svg{display:block;width:100%;height:auto}</style>
+<div class="container"><figure class="chap-banner"><svg viewBox="0 0 680 190" role="img" aria-label="章节插画：净现值 NPV"><rect width="680" height="190" fill="#fcf5e6"/><circle cx="598" cy="54" r="44" fill="#e6b45c" opacity="0.10"/><circle cx="598" cy="54" r="28" fill="#e6b45c" opacity="0.16"/><circle cx="598" cy="54" r="14" fill="#e6b45c" opacity="0.85"/><ellipse cx="340" cy="172" rx="305" ry="9" fill="#e3d5b4" opacity="0.5"/><line x1="90" y1="120" x2="600" y2="120" stroke="#3a3428" stroke-width="2"/><rect x="130" y="74" width="34" height="46" rx="5" fill="#bf5638"/><rect x="210" y="88" width="34" height="32" rx="5" fill="#e3d5b4"/><rect x="290" y="64" width="34" height="56" rx="5" fill="#bf5638"/><rect x="370" y="98" width="34" height="22" rx="5" fill="#e3d5b4"/><rect x="450" y="58" width="34" height="62" rx="5" fill="#3d7a66"/><path d="M530 96 h44 M552 74 v44" stroke="#3d7a66" stroke-width="5" stroke-linecap="round"/><text x="360" y="52" font-size="14" fill="#3d7a66" text-anchor="middle" font-family="serif">收益折现 − 成本，正数才值得做</text></svg></figure>
+    <h1>精算思维 · 第2章：净现值与内含价值——算一笔总账再决定</h1>
+    <div class="subtitle">像精算师一样思考 · 跨期折现力（下）</div>
+
+    <div class="fixed-opening">
+        ⚡ 不推销，只讲逻辑。花10分钟读完，比你自己瞎研究一个月都有用。
+    </div>
+
+    <div class="question-block">
+        <p>❓ 很多朋友问我：</p>
+        <p>“读一个MBA要花30万，到底值不值？”</p>
+        <p>“跳槽涨薪20% vs 留在原公司等期权，哪个更划算？”</p>
+        <p>“保险公司说的‘新业务价值’是什么？跟我的年终奖有什么关系？”</p>
+        <p style="margin-top: 12px;">📌 这些问题，都指向精算思维的核心工具——<strong>净现值（NPV）与内含价值（EV）</strong>。说得更直白些：算一笔总账，再决定干不干。</p>
+    </div>
+
+    
+    <h2>一、专业概念：什么是净现值（NPV）和内含价值（EV）？</h2>
+    <h3>1. 净现值（NPV）：一笔账算到底</h3>
+    <p><strong>净现值 = 未来收益折现到今天 − 成本折现到今天</strong></p>
+    <ul>
+        <li>如果 NPV > 0：这笔投资“赚”，值得做</li>
+        <li>如果 NPV < 0：这笔投资“亏”，不如不做</li>
+        <li>如果 NPV = 0：可做可不做，看心情</li>
+    </ul>
+    <div class="insight-box">
+        <p class="box-title"><strong>📐 简单例子</strong></p>
+        <p>今天投入100万，未来3年每年收回40万。折现率8%。</p>
+        <p>未来收益折现 = 40/1.08 + 40/1.08² + 40/1.08³ ≈ 103.1万</p>
+        <p>净现值 = 103.1 - 100 = <strong>+3.1万 > 0</strong> → 值得做。</p>
+    </div>
+
+    <h3>2. 内含价值（EV）：存量业务值多少钱</h3>
+    <p>保险公司有两类价值：</p>
+    <ul>
+        <li><strong>有效业务价值（VIF）</strong>：已经卖出的保单，未来利润折现到今天</li>
+        <li><strong>调整后净资产（ANAV）</strong>：公司账面净资产，调整到市场价值</li>
+    </ul>
+    <p><strong>内含价值（EV）= 有效业务价值 + 调整后净资产</strong><br>EV回答了：<strong>“公司现有业务，今天值多少钱？”</strong></p>
+
+    <h3>3. 新业务价值（NBV）：新生意创造的价值</h3>
+    <p>新业务价值 = 新卖出保单的未来利润折现（不含成本）。<br>它是衡量保险公司“成长性”的核心指标。NBV越高，说明新卖的保单越赚钱。</p>
+
+    
+    <h2>二、精算实践：保险公司如何用NPV和EV做决策</h2>
+    <div class="actuary-practice">
+        <p class="box-title"><strong>📋 一个精算师的真实工作场景</strong></p>
+        <p>每年产品定价时，精算师都要回答：“这款新产品，值得卖吗？”</p>
+        <p>计算路径：</p>
+        <p>1. 预测未来保费流入、理赔支出、费用、投资回报</p>
+        <p>2. 选一个折现率（通常用公司资本成本，比如8%-10%）</p>
+        <p>3. 算出NPV。若NPV > 0且有合理利润，就推；否则砍掉或调整价格。</p>
+        <p><strong>📊 案例：某重疾险的NBV计算</strong>
+        <table style="margin-top: 12px;">
+            <thead><tr><th>项目</th><th>金额（万元）</th></tr></thead>
+            <tbody>
+                <tr><td>首年保费</td><td>5000</td></tr>
+                <tr><td>未来保费现值</td><td>48000</td></tr>
+                <tr><td>理赔+费用现值</td><td>44000</td></tr>
+                <tr style="background:#f4f9ff;"><td><strong>新业务价值（NBV）</strong></td><td><strong>5000+48000-44000 = 9000</strong></td></tr>
+            </tbody>
+        </table>
+        NBV = 9000万，意味着这批新保单能为公司股东创造9000万的现值利润。</p>
+        <p><span style="background-color:#fff2cf; padding:2px 6px; border-radius:12px;">📌 精算师视角：NBV不是现金，是未来利润折现。</span> 如果实际投资收益率低于假设，NBV就会“蒸发”。所以精算师在做NBV时，往往会加<strong>风险边际</strong>（第3章详讲）。</p>
+    </div>
+
+    <div class="insight-box">
+        <p class="box-title"><strong>📈 延伸精算概念：新业务价值率</strong></p>
+        <p>新业务价值率 = NBV ÷ 首年保费（或保费现值）。</p>
+        <p>上面例子首年保费5000万，NBV 9000万，价值率高达<strong>180%</strong>。这意味着：每收1元保费，能创造1.8元股东价值。这就是保险公司愿意给高佣金、推重疾险的原因——利润空间大。</p>
+    </div>
+
+    
+    <h2>三、生活应用：用NPV帮你做重大决策</h2>
+    <h3>案例1：读MBA值不值？</h3>
+    <p>假设：学费+两年机会成本=60万，毕业后年薪增加15万，持续20年，折现率6%。<br>
+    未来增量收益折现 = 15万 × [1 - 1/(1.06)^20] / 0.06 ≈ 172万<br>
+    净现值 = 172 - 60 = <strong>+112万</strong> → 从经济角度看很值。</p>
+    <div class="shuorenhua">
+        <p class="box-title"><strong>🧠 但别忘了情景分析：</strong></p>
+        <p>悲观（只增5万/年）→ NPV ≈ -10万；中性 → +112万；乐观（增25万/年）→ +210万。</p>
+        <p><strong>决策逻辑：</strong>有70%概率中性以上，且最坏情况（-10万）能扛住，就可以读。</p>
+    </div>
+
+    <h3>案例2：买房还是租房？</h3>
+    <p>精算师给的实用指标：<strong>“年租金 ÷ 房价”比率</strong>。如果年租金/房价 &lt; 2%，买房不如租房；如果 >5%，买房划算。<br>
+    例如：300万的房子，月租5000，年租金6万，比率2% —— 刚过线，偏向租房。</p>
+    <div class="insight-box">
+        <strong>🔑 关键洞察：</strong> 买房决策不只是算账，还有“安全边际”——你是否需要那个“不会被房东赶走”的安定感？精算思维允许你把非货币收益（归属感、稳定）用低折现率纳入计算。
+    </div>
+
+    <h3>案例3：你的人力资本现值——你最大的资产</h3>
+    <p><strong>人力资本现值</strong> = 你未来一辈子工资收入的折现和。<br>
+    举例：30岁，年收入30万，预计工作到60岁，每年收入增长3%，折现率5%。<br>
+    粗略计算 ≈ 30万 × [1 - (1.03/1.05)^30] / (0.05-0.03) ≈ <strong>约900万</strong>。</p>
+    <div class="shuorenhua">
+        <strong>💡 说人话：</strong> 你最大的资产不是房子、股票，而是你未来能赚的钱。花时间学习、锻炼、积累人脉，就是在给你的“内含价值”增值。
+    </div>
+
+    
+    <h2>四、生活类比：果园的“内含价值”与“新业务价值”</h2>
+    <p>有一片果园，里面已经种了100棵苹果树，每年稳定产果，能卖10万元。这片果园的<strong>内含价值</strong> = 现有果树未来利润折现 + 土地价值。</p>
+    <p>果农又买了50棵新树苗种下，这批新树苗未来带来的利润（扣除成本）折现到今天，就是<strong>新业务价值（NBV）</strong>。</p>
+    <p>果农每年会算：老果园的EV（存量价值）和新种果树的NBV（增量价值）。<br>
+    如果为了高NBV借钱买贵树苗导致负债过高，可能影响整个果园的稳健——这就是保险公司要平衡NBV与风险的原因。</p>
+
+    
+    <h2>五、精算师视角：别被单一数字迷惑</h2>
+    <p><strong>NPV为正，就一定能做吗？</strong> 不一定。还要看：</p>
+    <ul>
+        <li><strong>资本占用</strong>：这个项目占用了你多少资源？</li>
+        <li><strong>风险</strong>：悲观情景下NPV为负且损失扛不住，就要加安全边际。</li>
+        <li><strong>长期影响</strong>：有时候做低NPV的事情，是为了积累经验、人脉，这些无形价值可用低折现率纳入。</li>
+    </ul>
+    <div class="core-conclusion">
+        <strong>🎯 个人版本：</strong> 跳槽NPV为正，还要问：新工作占用多少精力？被裁员风险大吗？能否带来更大平台？精算思维教你不只看NPV，还要看全图景。
+    </div>
+
+    
+    <h2>六、给你的行动建议</h2>
+    <div class="action-tips">
+        
+        <p><strong>✅ 行动清单：</strong></p>
+        <p>1️⃣ <strong>做一次“人生重大决策NPV速算”</strong></p>
+        <p>选纠结的决定（跳槽、读学位、买房、创业）。填写简表：成本（今天）、未来年收益、持续年限、折现率6%，粗略NPV。不需要精确，只比较相对大小。</p>
+        <p>2️⃣ <strong>估算你的“人力资本现值”和“内含价值”</strong></p>
+        <p>人力资本现值 = 未来工资折现（可用在线计算器）；内含价值 = 存款 + 技能估值。写下来提醒自己：存量价值多少，增量机会在哪。</p>
+        <p>3️⃣ <strong>警惕“高NPV但高风险”的陷阱</strong></p>
+        <p>如果某选项NPV很高，但需要押上全部身家（或健康、时间），先留足安全边际：6个月应急金，再考虑。</p>
+    
+    </div>
+
+    <div class="shuorenhua">
+        <p class="box-title"><strong>✅ 本周小练习：</strong></p>
+        <p>换新手机 vs 继续用旧手机。旧手机还能用2年，新手机6000元。估算：不换的6000元投资按6%年化，2年后变成6730元。问自己：新手机带来的两年体验提升，值6730元吗？这就是你的个人NPV测试。</p>
+    </div>
+
+    
+    
+
+    
+    
+
+    
+    <div class="speed-card">
+        <h4>📌 本章核心概念速记卡</h4>
+        <table>
+            <thead><tr><th>中文</th><th>英文</th><th>一句话大白话</th></tr></thead>
+            <tbody>
+                <tr><td>净现值</td><td>Net Present Value (NPV)</td><td>收益折现减成本，正数就值得干</td></tr>
+                <tr><td>内含价值</td><td>Embedded Value (EV)</td><td>公司现有业务今天值多少钱（存量）</td></tr>
+                <tr><td>新业务价值</td><td>New Business Value (NBV)</td><td>新保单未来利润折现（增量）</td></tr>
+                <tr><td>有效业务价值</td><td>Value of In-force (VIF)</td><td>已卖出保单的未来利润折现</td></tr>
+                <tr><td>人力资本现值</td><td>Human Capital PV</td><td>你未来一辈子能赚的钱，折到今天</td></tr>
+                <tr><td>新业务价值率</td><td>NBV Margin</td><td>NBV ÷ 保费，卖1元能赚多少股东价值</td></tr>
+            </tbody>
+        </table>
+        <div class="shuorenhua" style="margin-top: 16px;">
+            💡 <strong>延伸思考：</strong> 你的“内含价值”不仅包括钱，还包括健康、技能、人脉。每年更新一次你的“人生内含价值”清单，看看存量在增值还是贬值。如果存量贬值太快（如技能老化、健康下降），就需要加大“新业务”（学习、锻炼）的投入。
+        </div>
+    </div>
+    </div>
+</div>
+<div class="pager"><a href="01-折现.html"><small>← 上一篇</small>第1章 · 折现</a><a class="next" href="03-内含价值.html"><small>下一篇 →</small>第3章 · 内含价值</a></div>
+<footer class="colophon">精算思维 · 西红精算 · 不推销，只讲逻辑<br>本文只讲思维与方法，不构成任何投资或投保建议。</footer>
+</main>
+<script src="js/kb.js"></script>
+</body>
+</html>

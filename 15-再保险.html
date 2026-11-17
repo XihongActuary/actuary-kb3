@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精算思维 · 第13章：再保险</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-id="15">
+<button class="navbtn" type="button">☰ 目录</button>
+<aside class="side">
+  <div class="brand"><b>精算思维</b><span>不止于保险——像精算师一样思考，过好这一生</span></div>
+  <nav>
+<a href="index.html">进入知识库 · 全书目录</a>
+<div class="grp">开卷</div>
+<a href="00-序言.html">序言 · 精算思维为什么是必修课</a>
+<div class="grp">第一部分 · 跨期折现力</div>
+<a href="01-折现.html">第1章 · 折现</a>
+<a href="02-净现值与内含价值.html">第2章 · 净现值与内含价值</a>
+<a href="03-内含价值.html">第3章 · 内含价值</a>
+<a href="04-长期总账.html">第4章 · 长期总账</a>
+<a href="05-第一部分总结.html">第一部分总结 · 跨期折现力</a>
+<div class="grp">第二部分 · 动态修正与反馈力</div>
+<a href="06-经验分析.html">第5章 · 经验分析</a>
+<a href="07-滚动预测.html">第6章 · 滚动预测</a>
+<a href="08-随机模拟与反馈闭环.html">第7章 · 随机模拟与反馈闭环</a>
+<a href="09-第二部分总结.html">第二部分总结 · 动态修正与反馈力</a>
+<div class="grp">第三部分 · 安全边际与兜底力</div>
+<a href="10-风险边际.html">第8章 · 风险边际</a>
+<a href="11-偿付能力资本.html">第9章 · 偿付能力资本</a>
+<a href="12-审慎原则与关键风险.html">第10章 · 审慎原则与关键风险</a>
+<a href="13-黑天鹅准备.html">第11章 · 黑天鹅准备</a>
+<div class="grp">第四部分 · 风险优先级力</div>
+<a href="14-四象限矩阵.html">第12章 · 四象限矩阵</a>
+<a href="15-再保险.html" class="on">第13章 · 再保险</a>
+<a href="16-资产负债管理.html">第14章 · 资产负债管理</a>
+<div class="grp">第五部分 · 沟通翻译力</div>
+<a href="17-翻译三栏表.html">第15章 · 翻译三栏表</a>
+<a href="18-受众分层.html">第16章 · 受众分层翻译</a>
+<a href="19-反人性沟通.html">第17章 · 反人性沟通</a>
+<div class="grp">第六部分 · 人生全局平衡力</div>
+<a href="20-人生资产负债表.html">第18章 · 人生资产负债表</a>
+<a href="21-多目标优化.html">第19章 · 多目标优化</a>
+<a href="22-可持续平衡.html">第20章 · 可持续平衡</a>
+<div class="grp">收官</div>
+<a href="23-结语.html">结语 · 30 天打卡表</a>
+<a href="24-全书总结.html">全书总结 · 六大能力与术语速查</a>
+<div class="grp">关于</div>
+<a href="resources.html">延伸资源 · 官方外链与姊妹站</a>
+<a href="xihong.html">关于 · 西红精算</a>
+  </nav>
+  <div class="prog-mini">已读 <b id="kb-mini">0 / 25</b> 页<br>点每页右下角按钮记录进度</div>
+</aside>
+<main class="main">
+<div class="art-host">
+<style>
+.art-host *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+.art-host body{
+            background-color: #f7f9fc;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.68;
+            color: #1f2d3d;
+            padding: 20px 0 50px;
+        }
+.art-host .container{
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            padding: 28px 22px 48px;
+        }
+@media (max-width: 560px){.art-host .container{
+                padding: 22px 18px 40px;
+                margin: 0 12px;
+            }}
+.art-host h1{
+            font-size: 1.9rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0.2rem 0 0.5rem 0;
+            color: #0b2b3b;
+            letter-spacing: -0.3px;
+            border-left: 5px solid #2c7da0;
+            padding-left: 18px;
+        }
+.art-host .subtitle{
+            font-size: 1rem;
+            color: #2c7da0;
+            font-weight: 500;
+            margin: 10px 0 20px 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+.art-host .fixed-opening{
+            background-color: #f0f4fa;
+            padding: 16px 20px;
+            border-radius: 20px;
+            margin: 24px 0 20px;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+            color: #1e4660;
+        }
+.art-host .question-block{
+            background: #fef9e8;
+            border-left: 4px solid #f5a623;
+            padding: 14px 18px;
+            margin: 24px 0;
+            border-radius: 16px;
+        }
+.art-host .question-block p{
+            margin: 6px 0;
+            font-weight: 500;
+        }
+.art-host h2{
+            font-size: 1.65rem;
+            font-weight: 650;
+            margin: 1.6em 0 0.6em;
+            color: #1f4e6e;
+            border-left: 4px solid #2c7da0;
+            padding-left: 14px;
+        }
+.art-host h3{
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 1.4em 0 0.4em;
+            color: #285e7a;
+        }
+.art-host .insight-box{
+            background-color: #fef5e8;
+            border-left: 4px solid #f39c12;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+.art-host .actuary-practice{
+            background-color: #eef4fc;
+            border-left: 4px solid #2c7da0;
+            padding: 18px 20px;
+            margin: 1.6em 0;
+            border-radius: 18px;
+        }
+.art-host .shuorenhua{
+            background-color: #f0f4fa;
+            padding: 14px 20px;
+            border-radius: 20px;
+            margin: 1.2em 0;
+            border: 1px solid #dce5ef;
+            font-weight: 500;
+        }
+.art-host .action-tips{
+            background-color: #eef2f7;
+            border-radius: 22px;
+            padding: 20px 24px;
+            margin: 1.8em 0;
+            border: 1px solid #dce5ec;
+        }
+.art-host .alert-box{
+            background-color: #fee9e6;
+            border-left: 4px solid #dc2626;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host .core-conclusion{
+            background: #e6f7ec;
+            border-left: 4px solid #2e7d32;
+            padding: 16px 20px;
+            margin: 1.6em 0;
+            border-radius: 16px;
+        }
+.art-host table{
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2em 0;
+            font-size: 0.9rem;
+        }
+.art-host th,.art-host td{
+            border: 1px solid #d4dce6;
+            padding: 10px 8px;
+            text-align: center;
+            vertical-align: top;
+        }
+.art-host th{
+            background-color: #eef2f8;
+            font-weight: 600;
+        }
+.art-host .speed-card{
+            background: #f9fafb;
+            border-radius: 24px;
+            padding: 10px 18px 18px;
+            margin: 28px 0 20px;
+            border: 1px solid #e2edf2;
+        }
+.art-host .speed-card h4{
+            font-size: 1.3rem;
+            margin: 0.6rem 0 1rem;
+            color: #0e4b6e;
+        }
+.art-host footer{
+            margin-top: 48px;
+            padding-top: 28px;
+            border-top: 1px solid #e2edf0;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #4f6f8f;
+        }
+.art-host .next-chapter{
+            background: #e1edf5;
+            padding: 16px 22px;
+            border-radius: 28px;
+            margin: 32px 0 16px;
+            font-weight: 500;
+        }
+.art-host hr{
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: #e2e8f0;
+        }
+.art-host .action-item{
+            margin: 12px 0;
+        }
+.art-host .reinsurance-table{
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #dce5ec;
+            padding: 14px;
+            margin: 16px 0;
+        }
+</style>
+<style>.art-host .container{max-width:800px;background:var(--paper-2);border:1px solid var(--line);border-radius:16px;box-shadow:none;padding:30px 26px 40px}.art-host .container h1{font-size:22px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:14px !important;font-family:var(--serif);line-height:1.55 !important;letter-spacing:1px}.art-host .container .subtitle{color:#2f6b5a !important;font-weight:500;font-size:1rem !important;margin:10px 0 20px 0 !important;border-bottom:1px dashed #cfc5ab !important;padding-bottom:12px !important;line-height:1.7 !important}.art-host .container h2{font-size:20px !important;color:#2b2a26 !important;border-left:4px solid #b53d2e !important;padding-left:12px !important;margin:34px 0 14px !important;line-height:1.55 !important;font-family:var(--serif);letter-spacing:1px}.art-host .container h3{font-size:16.5px !important;color:#2f6b5a !important;margin:24px 0 12px !important;line-height:1.6 !important;font-family:var(--serif)}.art-host .container h4{font-size:15px !important;color:#2b2a26 !important;margin:18px 0 10px !important;line-height:1.6 !important}.art-host .container p{line-height:2.05 !important;margin:0 0 14px !important;font-size:15.5px !important;color:#3a382f !important;font-family:inherit}.art-host .container li{line-height:2 !important;font-size:15px !important;color:#3a382f !important}.art-host .container strong{color:#2b2a26 !important}.art-host .container a{color:#2f6b5a !important}.art-host .container hr{border:none;border-top:1px dashed #cfc5ab;margin:26px 0 !important}.art-host .container table{border-collapse:collapse !important}.art-host .container th{background:#f1ead8 !important;border:1px solid #e0d8c4 !important;color:#2b2a26 !important}.art-host .container td{border:1px solid #e0d8c4 !important;color:#3a382f !important}.art-host .container .fixed-opening{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important;color:#55524a !important}.art-host .container .question-block{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box{background:#faf3e2 !important;border-left:4px solid #bb8a1f !important;border-radius:12px !important}.art-host .container .insight-box,.art-host .container .shuorenhua{padding:16px 20px !important}.art-host .container .insight-box p,.art-host .container .shuorenhua p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .insight-box p:last-child,.art-host .container .shuorenhua p:last-child{margin-bottom:0 !important}.art-host .container .insight-box .box-title,.art-host .container .shuorenhua .box-title,.art-host .container .actuary-practice .box-title,.art-host .container .chapter-mini .box-title,.art-host .container .alert-box .box-title,.art-host .container .action-item .box-title,.art-host .container .margin-calc .box-title,.art-host .container .action-tips .box-title{font-weight:700 !important;margin-bottom:6px !important;padding-bottom:6px !important;border-bottom:1px dashed rgba(187,138,31,.45) !important}.art-host .container .actuary-practice p,.art-host .container .chapter-mini p,.art-host .container .alert-box p,.art-host .container .action-item p,.art-host .container .margin-calc p,.art-host .container .action-tips p{margin:0 0 10px 0 !important;line-height:1.95 !important}.art-host .container .actuary-practice p:last-child,.art-host .container .chapter-mini p:last-child,.art-host .container .alert-box p:last-child,.art-host .container .action-item p:last-child,.art-host .container .margin-calc p:last-child,.art-host .container .action-tips p:last-child{margin-bottom:0 !important}.art-host .container .actuary-practice,.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .action-item,.art-host .container .margin-calc,.art-host .container .action-tips{padding:16px 20px !important}.art-host .container .actuary-practice{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important}.art-host .container .shuorenhua{background:#f4efe0 !important;border:1px solid #e0d8c4 !important;border-radius:12px !important}.art-host .container .core-conclusion{background:#eef2ec !important;border-left:4px solid #2f6b5a !important;border-radius:12px !important;padding:18px 22px !important}.art-host .container .core-conclusion p{margin:10px 0 !important;line-height:1.95 !important}.art-host .container .action-tips{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card{background:#f7f3ea !important;border:1px solid #e0d8c4 !important;border-radius:14px !important}.art-host .container .speed-card h4{color:#b53d2e !important}.art-host .container .tool-badge{background:#2f6b5a !important}.art-host .container .chapter-mini,.art-host .container .alert-box,.art-host .container .italic-quote,.art-host .container .metric-badge,.art-host .container .action-item{line-height:1.95 !important;font-size:14.5px !important;color:#3a382f !important}.chap-banner{margin:0 0 24px;border:1px solid #e0d8c4;border-radius:14px;overflow:hidden}.chap-banner svg{display:block;width:100%;height:auto}</style>
+<div class="container"><figure class="chap-banner"><svg viewBox="0 0 680 190" role="img" aria-label="章节插画：再保险"><rect width="680" height="190" fill="#fcf5e6"/><circle cx="598" cy="54" r="44" fill="#e6b45c" opacity="0.10"/><circle cx="598" cy="54" r="28" fill="#e6b45c" opacity="0.16"/><circle cx="598" cy="54" r="14" fill="#e6b45c" opacity="0.85"/><ellipse cx="340" cy="172" rx="305" ry="9" fill="#e3d5b4" opacity="0.5"/><path d="M250 96 q90 -62 180 0 q-45 -14 -90 0 q-45 14 -90 0 z" fill="#3d7a66" stroke="#3a3428" stroke-width="2.5"/><line x1="340" y1="96" x2="340" y2="150" stroke="#3a3428" stroke-width="3"/><rect x="250" y="118" width="42" height="32" fill="#fffdf6" stroke="#e3d5b4" stroke-width="2"/><path d="M250 118 l21 -14 l21 14 z" fill="#bf5638"/><rect x="410" y="118" width="42" height="32" fill="#fffdf6" stroke="#e3d5b4" stroke-width="2"/><path d="M410 118 l21 -14 l21 14 z" fill="#c98f2b"/><text x="340" y="58" font-size="13.5" fill="#3a3428" text-anchor="middle" font-family="serif">保险公司也要买保险</text></svg></figure>
+    <h1>精算思维 · 第13章：再保险——把扛不住的风险转移出去</h1>
+    <div class="subtitle">像精算师一样思考 · 风险优先级力（中）</div>
+
+    <div class="fixed-opening">
+        ⚡ 不推销，只讲逻辑。花10分钟读完，比你自己瞎研究一个月都有用。
+    </div>
+
+    <div class="question-block">
+        <p>❓ 很多朋友问我：</p>
+        <p>“保险公司自己也会破产吗？那它们怎么应对巨灾？”</p>
+        <p>“什么是再保险？跟我有什么关系？”</p>
+        <p>“我怎么判断一个风险是‘自己扛’还是‘转移出去’？”</p>
+        <p style="margin-top: 12px;">📌 这些问题，指向精算思维中风险管理的核心决策——<strong>转移 vs 自留</strong>。精算师通过再保险工具，把“扛不住”的风险转移给更专业的机构，让自己轻装上阵。你个人也需要一套“再保险”策略。</p>
+    </div>
+
+    
+    <h2>一、专业概念：什么是再保险？</h2>
+    <h3>1. 保险公司的保险公司</h3>
+    <p><strong>再保险（Reinsurance）</strong>，就是保险公司给自己买的保险。当原保险公司承保的单笔风险过高（如一个核电站、一架飞机），或单次巨灾（台风、地震）可能导致赔付超过承受能力时，就会将部分风险分给再保险公司。</p>
+    <div class="insight-box">
+        <strong>📌 核心逻辑：</strong> 原保险公司支付再保险费，换取再保险公司在损失超过约定金额时承担赔付。这样可以平滑利润波动、保护偿付能力，也让原保险公司敢于承接大额保单。
+    </div>
+
+    <h3>2. 再保险的两种主要形式</h3>
+    <ul>
+        <li><strong>比例再保险（Proportional）</strong>：按比例分摊保费和赔款。例如原公司分出40%的风险，再保公司收取40%保费，也承担40%赔款。</li>
+        <li><strong>非比例再保险（Non-proportional / Excess of Loss）</strong>：设定一个“自留额”（例如500万），超过部分由再保公司承担。这是巨灾再保险的主流形式。</li>
+    </ul>
+
+    <div class="shuorenhua">
+        <strong>💡 说人话：</strong> 比例再保险像是“合伙做生意”，非比例再保险像是“买一个止损线”——超过某个数字，别人来兜底。
+    </div>
+
+    <h3>3. 再保险如何影响保险公司的决策</h3>
+    <p>有了再保险，保险公司可以：</p>
+    <ul>
+        <li>承接原本不敢接的大额保单（如卫星发射、大型活动）</li>
+        <li>降低偿付能力资本要求（因为风险已转移）</li>
+        <li>平滑年度利润，避免一年大亏、一年大赚</li>
+        <li>进入新市场或高风险领域</li>
+    </ul>
+
+    
+    <h2>二、生活应用：找到你自己的“个人再保险”</h2>
+    <h3>1. 你承受不了的风险，必须转移</h3>
+    <p>对个人来说，“扛不住”的标准是：<strong>一旦发生，你的储蓄无法覆盖，或者严重影响生活质量超过三年。</strong></p>
+    <div class="reinsurance-table">
+        <strong>个人典型的“扛不住”风险清单：</strong>
+        <ul style="margin-top:8px;">
+            <li>大病治疗费用超20万</li>
+            <li>家庭主要收入者身故</li>
+            <li>意外导致长期残疾失去劳动能力</li>
+            <li>房屋被烧毁或严重水淹</li>
+            <li>被起诉承担巨额赔偿（如车撞人）</li>
+        </ul>
+    </div>
+    <p>针对这些风险，商业保险就是你个人的“再保险”。</p>
+
+    <h3>2. 个人风险转移工具对比</h3>
+    <table>
+        <thead><tr><th>风险类型</th><th>转移工具</th><th>年成本参考</th><th>是否必须</th></tr></thead>
+        <tbody>
+            <tr><td>大病医疗费</td><td>百万医疗险</td><td>300-1000元</td><td>强烈推荐</td></tr>
+            <tr><td>收入损失+康复费</td><td>重疾险（保额30-50万）</td><td>3000-8000元</td><td>推荐（尤其家庭支柱）</td></tr>
+            <tr><td>身故后家庭经济来源</td><td>定期寿险</td><td>1000-3000元</td><td>有房贷/子女者推荐</td></tr>
+            <tr><td>意外伤残</td><td>意外险</td><td>200-500元</td><td>推荐</td></td>
+            <tr><td>房屋及财产损失</td><td>家财险</td><td>100-500元</td><td>性价比极高</td></tr>
+        </tbody>
+    </table>
+
+    <div class="core-conclusion">
+        <strong>🎯 精算决策规则：</strong> 当“保费 × 可能损失的年份” < “一次损失带来的净资产下降额”时，就值得购买。例如，定期寿险一年1000元，假设未来30年工作期共3万元，而保额100万。如果身故概率1%，期望损失1万，实际支付3万保费似乎略高？但精算逻辑不同：你买的是“确定性”——确保家人不会因你身故而流离失所。这类保险不是纯财务计算，而是“尾部风险转移”。
+    </div>
+
+    <h3>3. 什么时候“自留”？——建立个人自留额</h3>
+    <p>和保险公司的“自留额”一样，你也应该设定一个自己能承受的损失上限。比如：</p>
+    <ul>
+        <li>5000元以下的损失：不买保险，自掏腰包（如手机碎屏、自行车丢失）</li>
+        <li>1万-5万：视情况可选择提高免赔额来降低保费</li>
+        <li>超过10万：必须转移（买保险）</li>
+    </ul>
+    <div class="alert-box">
+        <strong>⚠️ 常见错误：</strong> 为小风险买“高保额小保费”的保险（如手机延保、航班延误险），看似便宜，但因为理赔概率低，实际“性价比”远低于大额保险。精算思维建议：<strong>只转移大额风险，小额风险自留。</strong>
+    </div>
+
+    
+    <h2>三、生活类比：分蛋糕和安全绳</h2>
+    <p><strong>比例再保险</strong>像分蛋糕：你和朋友合租一套房，按比例分担房租和水电。比例再保险就是按比例分担保费和赔款。</p>
+    <p><strong>非比例再保险</strong>像登山时的安全绳：你爬到高处，万一坠落，安全绳会在你掉到一定深度后拉住你。你不会因为一次失误就直接摔到底。巨灾再保险就是你的“财务安全绳”——超过自留额的损失，有人兜底。</p>
+
+    
+    <h2>四、精算师视角：最优风险转移是动态的</h2>
+    <p>很多人买了保险就再也不管，但精算师每年都会重新评估再保险安排：公司变大了，自留能力增强，可以降低再保险比例；或者某类风险恶化，需要增加再保险覆盖。</p>
+    <p>个人也一样：收入增加、储蓄变厚后，你的“自留能力”提高了。原来需要买保险的1万元损失，现在可以直接自留，从而节省保费。但也可能因为有了家庭、买了房，需要增加保额。</p>
+    <div class="shuorenhua">
+        <strong>💡 精算建议：</strong> 每年在你生日或年度体检时，同步做一次“个人再保险体检”：检查所有保险的保额是否还匹配你的负债和家庭责任。老保单的保额可能已不足（因为通胀和收入增长），需要适时加保。
+    </div>
+
+    
+    <h2>五、给你的行动建议</h2>
+    <div class="action-tips">
+        
+        <p><strong>✅ 行动清单：</strong></p>
+        <p>1️⃣ <strong>计算你的“个人自留额”</strong></p>
+        <p>问自己：多大的意外损失，我可以不靠保险，直接从存款中拿出来而不影响基本生活？这个数字就是你的“自留额”。低于这个额度的风险，不需要买保险。</p>
+        <p>2️⃣ <strong>检查你的“再保险”配置</strong></p>
+        <p>对照上面的风险转移表，看自己是否覆盖了大病、身故、残疾、房屋四大风险。如果有缺口，在本季度内补充。</p>
+        <p>3️⃣ <strong>优化免赔额</strong></p>
+        <p>对于医疗险、车险，如果自留能力较强，可以选择更高的免赔额（如1万），从而大幅降低保费。省下的钱可以用于增加保额或投资。</p>
+        <p>4️⃣ <strong>定期再评估</strong></p>
+        <p>每年检查一次保额是否跑赢了通胀和收入增长。重疾险保额建议覆盖3-5年收入；定期寿险保额建议覆盖剩余房贷+10年家庭支出。</p>
+    
+    </div>
+    <div class="shuorenhua">
+        <p class="box-title"><strong>✅ 本周练习：</strong></p>
+        <p>拿出你的所有保单（或查电子保单），列出：购买的险种、保额、年保费、免赔额。然后估算：如果今天发生对应的风险，这些保额够不够？如果不够，联系保险顾问或自行在线上产品加保。同时找出那些“小额、低频”的保险（如手机碎屏险、航班延误险），考虑下一期不续保。</p>
+    </div>
+
+    
+    
+
+    
+    
+
+    
+    <div class="speed-card">
+        <h4>📌 本章核心概念速记卡</h4>
+        <table>
+            <thead><tr><th>中文</th><th>英文</th><th>一句话大白话</th></tr></thead>
+            <tbody>
+                <tr><td>再保险</td><td>Reinsurance</td><td>保险公司给自己买的保险</td></tr>
+                <tr><td>比例再保险</td><td>Proportional Reinsurance</td><td>按比例分摊保费和赔款，合伙做生意</td></tr>
+                <tr><td>非比例再保险</td><td>Excess of Loss Reinsurance</td><td>超过自留额的部分由再保承担</td></tr>
+                <tr><td>自留额</td><td>Retention</td><td>自己承担的最高损失额度</td></tr>
+                <tr><td>最大可能损失</td><td>PML (Probable Maximum Loss)</td><td>一次灾难可能造成的最大损失</td></tr>
+                <tr><td>个人再保险</td><td>Personal Reinsurance</td><td>商业保险就是你的再保险</td></tr>
+            </tbody>
+        </table>
+        <div class="shuorenhua" style="margin-top: 16px;">
+            💡 <strong>延伸思考：</strong> 再保险思维的底层是“能力边界”。保险公司承认自己不是万能的，所以把扛不住的风险转出去。个人也应该承认自己无法承担所有风险，通过保险把“不能承受之重”转给专业机构。这不是示弱，是智慧的“能力分工”——让保险公司承担它擅长的大额风险分散，让你专注于赚钱和享受生活。
+        </div>
+    </div>
+    </div>
+</div>
+<div class="pager"><a href="14-四象限矩阵.html"><small>← 上一篇</small>第12章 · 四象限矩阵</a><a class="next" href="16-资产负债管理.html"><small>下一篇 →</small>第14章 · 资产负债管理</a></div>
+<footer class="colophon">精算思维 · 西红精算 · 不推销，只讲逻辑<br>本文只讲思维与方法，不构成任何投资或投保建议。</footer>
+</main>
+<script src="js/kb.js"></script>
+</body>
+</html>
